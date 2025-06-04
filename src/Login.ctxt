@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Login
+comment1.params=
+comment1.target=Login()
+comment2.params=
+comment2.target=void\ criarTabelaSeNaoExistir()
+comment3.params=usuario
+comment3.target=void\ inserirUsuario(Usuario)
+comment4.params=nomeUsuario\ senha
+comment4.target=boolean\ verificarLogin(java.lang.String,\ java.lang.String)
+comment5.params=nomeUsuario
+comment5.target=boolean\ ehAdministrador(java.lang.String)
+numComments=6
