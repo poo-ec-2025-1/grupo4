@@ -1,7 +1,0 @@
-#BlueJ class context
-comment0.target=Administrador
-comment1.params=nomeUsuario\ senha\ tipo
-comment1.target=Administrador(java.lang.String,\ java.lang.String,\ java.lang.String)
-comment2.params=novoUsuario
-comment2.target=void\ cadastrarUsuario(Usuario)
-numComments=3

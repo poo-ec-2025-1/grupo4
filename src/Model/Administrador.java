@@ -1,3 +1,4 @@
+package Model;
 public class Administrador extends Usuario {
 
     public Administrador(String nomeUsuario, String senha, String tipo) {
