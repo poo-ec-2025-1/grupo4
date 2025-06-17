@@ -1,3 +1,5 @@
+package model;
+
 import com.j256.ormlite.dao.DaoManager;
 import com.j256.ormlite.dao.Dao;
 import java.sql.SQLException;
@@ -5,42 +7,42 @@ import com.j256.ormlite.table.TableUtils;
 import java.util.List;
 import java.util.ArrayList;
 
-public class UsuarioDAO
+public class UserRep
 {
-    private static UsuarioDB database;
-    private static Dao<Usuario, Integer> dao;
+    private static UserDB database;
+    private static Dao<User, Integer> dao;
     
     
-    public UsuarioDAO(UsuarioDB database) {
-        UsuarioDAO.setDatabase(database);
+    public UserRep(UserDB database) {
+        UserRep.setDatabase(database);
     }
     
-    public static void setDatabase(UsuarioDB database) {
-        UsuarioDAO.database = database;
+    public static void setDatabase(UserDB database) {
+        UserRep.database = database;
         try {
-            dao = DaoManager.createDao(database.getConnection(), Usuario.class);
-            TableUtils.createTableIfNotExists(database.getConnection(), Usuario.class);
+            dao = DaoManager.createDao(database.getConnection(), User.class);
+            TableUtils.createTableIfNotExists(database.getConnection(), User.class);
         }
         catch(SQLException e) {
             System.out.println(e);
         }            
     }
     
-    public Usuario create(Usuario usuario) {
+    public User create(User user) {
         int nrows = 0;
         try {
-            nrows = dao.create(usuario);
+            nrows = dao.create(user);
             if ( nrows == 0 )
                 throw new SQLException("Erro: usuário não foi salvo.");
         } catch (SQLException e) {
             System.out.println(e);
         }
-        return usuario;
+        return user;
     }    
 
-    public void update(Usuario usuario) {
+    public void update(User user) {
       try {
-        int updatedRows = dao.update(usuario);
+        int updatedRows = dao.update(user);
         if (updatedRows == 0) {
             System.out.println("O usuário não foi atualizado.");
         } else {
@@ -51,9 +53,9 @@ public class UsuarioDAO
     }
     }
 
-    public void delete(Usuario usuario) {
+    public void delete(User user) {
       try {
-        int deletedRows = dao.delete(usuario);
+        int deletedRows = dao.delete(user);
         if (deletedRows == 0) {
             System.out.println("Usuário não deletado.");
         } else {
@@ -64,37 +66,37 @@ public class UsuarioDAO
     }
     }
     
-    public boolean login(String nomeUsuario, String senha) {
-        Usuario usuario;
+    public boolean login(String username, String password) {
+        User user;
     
         try {
-        usuario = dao.queryBuilder()
+        user = dao.queryBuilder()
                      .where()
-                     .eq("nomeUsuario", nomeUsuario)
+                     .eq("username", username)
                      .and()
-                     .eq("senha", senha)
+                     .eq("password", password)
                      .queryForFirst(); 
         } catch (SQLException e) {
         System.out.println("Erro ao buscar por usuario e senha: " + e.getMessage());
         return false;
         }
-        return usuario != null;
+        return user != null;
     }
     
-    public boolean verificaAdmin(String nomeUsuario) {
-        Usuario usuario;
+    public boolean verificaAdmin(String username) {
+        User user;
     
         try {
-        usuario = dao.queryBuilder()
+        user = dao.queryBuilder()
                      .where()
-                     .eq("nomeUsuario", nomeUsuario)
+                     .eq("username", username)
                      .and()
-                     .eq("tipo", "admin")
+                     .eq("type", "admin")
                      .queryForFirst(); 
         } catch (SQLException e) {
         System.out.println("Erro ao verificar se´o usuário é um administrador: " + e.getMessage());
         return false;
         }
-        return usuario != null;
+        return user != null;
     }
 }

@@ -1,12 +1,14 @@
-import java.sql.*; 
+package model;
+
+import java.sql.*;
 import com.j256.ormlite.jdbc.JdbcConnectionSource;
 
-public class UsuarioDB
+public class ProductDB
 {
    private String databaseName = null;
    private JdbcConnectionSource connection = null;
    
-   public UsuarioDB(String databaseName) {
+   public ProductDB(String databaseName) {
        this.databaseName = databaseName;
    }    
    
@@ -36,4 +38,4 @@ public class UsuarioDB
            }
        }
    }
-}                                                                              
+}
