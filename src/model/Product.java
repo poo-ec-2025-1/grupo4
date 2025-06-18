@@ -8,11 +8,7 @@ import com.j256.ormlite.field.DataType;
 
 @DatabaseTable(tableName = "produtos")
 public class Product
-{   
-    
-    @DatabaseField(generatedId = true)
-    private int id;
-    
+{     
     @DatabaseField
     private String name;
     
@@ -23,10 +19,10 @@ public class Product
     private String shelf;
     
     @DatabaseField
-    public int store_quantity;
+    public double store_quantity;
     
     @DatabaseField
-    public int stock_quantity;
+    public double stock_quantity;
     
     @DatabaseField(dataType=DataType.DATE)
     public Date expiration;
@@ -83,7 +79,7 @@ public class Product
     }
 
     /**GET Method Propertie store_quantity*/
-    public int getStoreQuantity(){
+    public double getStoreQuantity(){
         return this.store_quantity;
     }
 
@@ -93,7 +89,7 @@ public class Product
     }
     
     /**GET Method Propertie stock_quantity*/
-    public int getStockQuantity(){
+    public double getStockQuantity(){
         return this.stock_quantity;
     }
 

@@ -1,10 +1,7 @@
 package model;
 
-import java.util.Date;
-import java.text.SimpleDateFormat;
 import com.j256.ormlite.table.DatabaseTable;
 import com.j256.ormlite.field.DatabaseField;
-import com.j256.ormlite.field.DataType;
 
 @DatabaseTable(tableName = "user")
 public class User
