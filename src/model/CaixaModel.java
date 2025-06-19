@@ -27,7 +27,7 @@ public class CaixaModel {
     }
     
     //verifica se o produto está na loja
-    public boolean confereProduto(String codigo, double quantidade){
+    public static boolean confereProduto(String codigo, double quantidade){
         Product product = null;
         try{
             product = dao.queryBuilder()
@@ -44,25 +44,28 @@ public class CaixaModel {
         return product != null;
     }
     //retira a quantidade requisitada da estante da loja
-    public boolean retiraProduto(String codigo, double quantidade){
+    public static boolean retiraProduto(String codigo, double quantidade){
         Product product = null;
         try{
             product = dao.queryBuilder()
             .where()
             .eq("code", codigo)
             .queryForFirst();
-            product.setStoreQuantity(product.getStoreQuantity() - quantidade);
-            if(product.getStoreQuantity() >= 0){
-                dao.update(product);
-                return true;
+            if(product != null){
+                if(product.getStoreQuantity() >= 0){
+                    product.setStoreQuantity(product.getStoreQuantity() - quantidade);
+                    dao.update(product);
+                    return true;
+                }
             } else{
                 return false;
             }
         }
         catch(SQLException e){
-            System.out.println("Erro ao buscar por usuario e senha: " + e.getMessage());
+            System.out.println("Erro ao buscar produto: " + e.getMessage());
         return false;
         }
+        return false;
     }
     
 }

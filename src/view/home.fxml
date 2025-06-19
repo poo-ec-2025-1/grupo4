@@ -1,58 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
+<VBox fillWidth="true" prefHeight="586.0" prefWidth="366.0" spacing="10" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" >
 
-<BorderPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
-   <center>
-      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="603.0" prefWidth="793.0" style="-fx-background-color: #363636;">
-         <children>
-            <Button layoutX="749.0" layoutY="14.0" mnemonicParsing="false" style="-fx-background-color: #FF0000;" text="X" textFill="WHITE">
-               <font>
-                  <Font name="Monospaced Bold" size="12.0" />
-               </font>
-            </Button>
-            <Button layoutX="37.0" layoutY="37.0" mnemonicParsing="false" prefHeight="76.0" prefWidth="215.0" style="-fx-background-color: #32CD32; -fx-border-color: #DCDCDC;" text="BLOCO A" textFill="WHITE">
-               <font>
-                  <Font name="Monospaced Bold" size="24.0" />
-               </font>
-            </Button>
-            <Button layoutX="267.0" layoutY="37.0" mnemonicParsing="false" prefHeight="76.0" prefWidth="215.0" style="-fx-background-color: #32CD32; -fx-border-color: #DCDCDC;" text="BLOCO B" textFill="WHITE">
-               <font>
-                  <Font name="Monospaced Bold" size="24.0" />
-               </font>
-            </Button>
-            <Button layoutX="496.0" layoutY="37.0" mnemonicParsing="false" prefHeight="76.0" prefWidth="215.0" style="-fx-background-color: #32CD32; -fx-border-color: #DCDCDC;" text="BLOCO C" textFill="WHITE">
-               <font>
-                  <Font name="Monospaced Bold" size="24.0" />
-               </font>
-            </Button>
-         </children>
-      </AnchorPane>
-   </center>
-   <left>
-      <VBox prefHeight="603.0" prefWidth="155.0" style="-fx-background-color: #696969;" BorderPane.alignment="CENTER">
-         <children>
-            <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="155.0" style="-fx-background-color: #32CD32; -fx-border-color: #DCDCDC;" text="ESTOQUE" textFill="WHITE">
-               <font>
-                  <Font name="Monospaced Bold" size="24.0" />
-               </font>
-            </Button>
-            <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="155.0" style="-fx-background-color: #32CD32; -fx-border-color: #DCDCDC;" text="NOTIFICAÇÕES" textFill="WHITE">
-               <font>
-                  <Font name="Monospaced Bold" size="17.0" />
-               </font>
-            </Button>
-            <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="155.0" style="-fx-background-color: #32CD32; -fx-border-color: #DCDCDC;" text="CHAT" textFill="WHITE">
-               <font>
-                  <Font name="Monospaced Bold" size="24.0" />
-               </font>
-            </Button>
-         </children>
-      </VBox>
-   </left>
-</BorderPane>
+    <Button id="caixaButton" maxWidth="Infinity" prefHeight="262.0" prefWidth="366.0" onAction="#abrirCaixa" text="CAIXA">
+      <font>
+         <Font name="Noto Sans Bold" size="64.0" />
+      </font></Button>
+    <Button id="repositorioButton" maxWidth="Infinity" prefHeight="289.0" prefWidth="366.0" onAction="#abrirRepositorio" text="REPOSITÓRIO">
+      <font>
+         <Font name="Noto Sans Regular" size="43.0" />
+      </font></Button>
+    <Button id="conferenteButton" maxWidth="Infinity" prefHeight="286.0" prefWidth="366.0" onAction="#abrirConferente" text="CONFERENTE">
+      <font>
+         <Font name="Noto Sans Regular" size="44.0" />
+      </font></Button>
+
+</VBox>

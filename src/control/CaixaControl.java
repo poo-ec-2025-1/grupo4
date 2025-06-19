@@ -1,6 +1,5 @@
-package controller;
+package control;
 
- 
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -9,9 +8,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
-import model.CaixaModel;
+import model.ProductDB;
 
-import view.*;
 
 
 public class CaixaControl implements Initializable{
@@ -22,12 +20,9 @@ public class CaixaControl implements Initializable{
     @FXML
     private Label mensagem;
     
-    public static void caixaRun(String[] args){
-        CaixaView view = new CaixaView();
-        view.run(args);
-    }
+    public ProductDB produto = new ProductDB("produtos");
 
-    @Override
+    @FXML
     public void initialize(URL location, ResourceBundle resources) {
         txtCodigo.setTextFormatter(new TextFormatter<>(change -> {
         String novoTexto = change.getControlNewText();
@@ -38,20 +33,47 @@ public class CaixaControl implements Initializable{
         return novoTexto.matches("\\d*(\\.\\d*)?") ? change : null;}));
 
     }
-
+    @FXML
     public void vender(){
         String cod = txtCodigo.getText();
         double quant = Double.parseDouble(txtQuantidade.getText());
+        model.CaixaModel caixa = new model.CaixaModel(produto);
 
-        if(CaixaModel.confereProduto(cod, quant)){
-            CaixaModel.retiraProduto(cod, quant);
+        if(caixa.confereProduto(cod, quant)){
+            caixa.retiraProduto(cod, quant);
             mensagem.setText("Vendido");
+            limparCampos();
         }
         else mensagem.setText("Produto ou quantidade inexitente em loja");
     }
-
+    @FXML
     public void limparCampos(){
         txtCodigo.setText("");
         txtQuantidade.setText("");
     }
+    @FXML
+    public void voltarTelaAnterior(){
+        ScreenControl.changeScene("view/home.fxml");
+    }
+    /*
+        try {
+        // Carrega a nova interface
+            Parent root = FXMLLoader.load(getClass().getResource("src/view/home.fxml"));
+
+        // Cria uma nova janela
+            Stage novaJanela = new Stage();
+            novaJanela.setScene(new Scene(root));
+            novaJanela.show();
+
+        // Fecha a janela atual
+            Stage janelaAtual = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            janelaAtual.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+    }
+        */
 }
