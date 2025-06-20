@@ -1,7 +1,7 @@
 package model;
 
  
-
+import java.text.ParseException;
 import java.util.Date;
 import java.text.SimpleDateFormat;
 import com.j256.ormlite.table.DatabaseTable;
@@ -16,6 +16,12 @@ public class Product
     
     @DatabaseField
     private String code;
+    
+    @DatabaseField
+    private String section;
+    
+    @DatabaseField
+    private String gondola;
     
     @DatabaseField
     private String shelf;
@@ -39,15 +45,18 @@ public class Product
     
     public Product(){}
     
-    public Product(String name, String code, String shelf,
-    double store_quantity, double stock_quantity, Date expiration, double unit_price){
+    public Product(String name, String code,String section, String gondola,
+    String shelf, double store_quantity, double stock_quantity, String expiration,
+    double unit_price){
         this.name = name;
         this.code = code;
+        this.section = section;
+        this.gondola = gondola;
         this.shelf = shelf;
         this.store_quantity = store_quantity;
         this.stock_quantity = stock_quantity;
-        this.expiration = expiration;
         this.unit_price = unit_price;
+        this.setExpiration(expiration);
     }
 
     /**GET Method Propertie name*/
@@ -70,6 +79,16 @@ public class Product
         this.code = code;
     }
     
+    /**GET Method Propertie section*/
+    public String getSection(){
+        return this.section;
+    }
+
+    /**SET Method Propertie section*/
+    public void setSection(String section){
+        this.section = section;
+    }
+    
     /**GET Method Propertie shelf*/
     public String getShelf(){
         return this.shelf;
@@ -78,6 +97,16 @@ public class Product
     /**SET Method Propertie shelf*/
     public void setShelf(String shelf){
         this.shelf = shelf;
+    }
+    
+    /**GET Method Propertie gondola*/
+    public String getGondola(){
+        return this.gondola;
+    }
+
+    /**SET Method Propertie gondola*/
+    public void setGondola(String gondola){
+        this.gondola = gondola;
     }
 
     /**GET Method Propertie store_quantity*/
@@ -101,12 +130,14 @@ public class Product
     }
 
     /**GET Method Propertie expiration*/
-    public Date getExpiration(){
-        return this.expiration;
+    public String getExpiration(){
+        String data = DateToString(this.expiration);
+        return data;
     }
 
     /**SET Method Propertie expiration*/
-    public void setExpiration(Date expiration){
+    public void setExpiration(String data){
+        expiration = StringToDate(data);
         this.expiration = expiration;
     }
     
@@ -119,5 +150,21 @@ public class Product
     public void setPrice(double unit_price){
         this.unit_price = unit_price;
     }
+    
+    public static Date StringToDate(String dataEmTexto) {
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+        formato.setLenient(false); 
 
+        try {
+            return formato.parse(dataEmTexto);
+        } catch (ParseException e) {
+            System.out.println("Data inválida: " + dataEmTexto);
+            return null; 
+        }
+    }
+    
+    public static String DateToString(Date data) {
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+        return formato.format(data);
+    }
 }
