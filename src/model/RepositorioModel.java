@@ -1,6 +1,5 @@
 package model;
 
-import java.util.ArrayList;
 import java.util.List;
 import com.j256.ormlite.dao.DaoManager;
 import com.j256.ormlite.dao.Dao;
@@ -9,7 +8,6 @@ import com.j256.ormlite.table.TableUtils;
 
 public class RepositorioModel
 {
-    private static ProductDB database;
     private static Dao<Product, Integer> dao;
     
     
@@ -18,7 +16,6 @@ public class RepositorioModel
     }
     
     public static void setDatabase(ProductDB database) {
-        RepositorioModel.database = database;
         try {
             dao = DaoManager.createDao(database.getConnection(), Product.class);
             TableUtils.createTableIfNotExists(database.getConnection(), Product.class);

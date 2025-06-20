@@ -10,7 +10,10 @@ import com.j256.ormlite.field.DataType;
 
 @DatabaseTable(tableName = "produtos")
 public class Product
-{     
+{  
+    @DatabaseField(generatedId = true)
+    private int Id;
+       
     @DatabaseField
     private String name;
     

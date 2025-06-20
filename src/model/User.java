@@ -1,14 +1,12 @@
 package model;
 
- 
-
 import com.j256.ormlite.table.DatabaseTable;
 import com.j256.ormlite.field.DatabaseField;
+
 
 @DatabaseTable(tableName = "user")
 public class User
 {   
-
     @DatabaseField(generatedId = true)
     private int id;
     
@@ -59,7 +57,4 @@ public class User
     public void setTipo(String position){
         this.position = position;
     } 
-
-
-
 }                                                                                                                         

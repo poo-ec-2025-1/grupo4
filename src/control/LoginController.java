@@ -17,16 +17,14 @@ public class LoginController {
     
     
     private static model.UserDB database = new model.UserDB("usuarios");
-    private static model.UserRep userRep = 
-        new model.UserRep(database);
+    private static model.UserRep userRep = new model.UserRep(database);
         
     private boolean logado;
         
-    
+    @FXML
     public void fazerLogin(){
         try{
             logado = userRep.login(userField.getText(), passwordField.getText());
-            System.out.println("Botão clicado.");
             if(logado){
                 ScreenControl.changeScene("/view/home.fxml");
             } else{

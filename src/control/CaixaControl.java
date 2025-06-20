@@ -11,7 +11,6 @@ import javafx.scene.control.TextFormatter;
 import model.ProductDB;
 
 
-
 public class CaixaControl implements Initializable{
     @FXML
     private TextField txtCodigo;
@@ -22,7 +21,7 @@ public class CaixaControl implements Initializable{
     
     public ProductDB produto = new ProductDB("produtos");
 
-    @FXML
+    @Override
     public void initialize(URL location, ResourceBundle resources) {
         txtCodigo.setTextFormatter(new TextFormatter<>(change -> {
         String novoTexto = change.getControlNewText();
@@ -37,10 +36,9 @@ public class CaixaControl implements Initializable{
     public void vender(){
         String cod = txtCodigo.getText();
         double quant = Double.parseDouble(txtQuantidade.getText());
-        model.CaixaModel caixa = new model.CaixaModel(produto);
+        model.CaixaModel.setDatabase(produto);
 
-        if(caixa.confereProduto(cod, quant)){
-            caixa.retiraProduto(cod, quant);
+        if(model.CaixaModel.confereProduto(cod, quant)){
             mensagem.setText("Vendido");
             limparCampos();
         }
@@ -53,6 +51,7 @@ public class CaixaControl implements Initializable{
     }
     @FXML
     public void voltarTelaAnterior(){
-        ScreenControl.changeScene("view/home.fxml");
+        produto.close();
+        ScreenControl.changeScene("/view/home.fxml");
     }
 }

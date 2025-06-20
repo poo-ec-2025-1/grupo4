@@ -8,15 +8,9 @@ import com.j256.ormlite.table.TableUtils;
 /* A classe CaixaModel seria equivalente à outra classe ProductRep, mas possui 
  * métodos diferentes do CRUD.*/
 public class CaixaModel {
-    private static ProductDB database;
     private static Dao<Product, Integer> dao;
-    
-    public CaixaModel(ProductDB database) {
-        CaixaModel.setDatabase(database);
-    }
-    
+      
     public static void setDatabase(ProductDB database) {
-        CaixaModel.database = database;
         try {
             dao = DaoManager.createDao(database.getConnection(), Product.class);
             TableUtils.createTableIfNotExists(database.getConnection(), Product.class);
@@ -26,7 +20,7 @@ public class CaixaModel {
         }            
     }
     
-    //verifica se o produto está na loja
+    //verifica se o produto está na loja e retira a quantidade requisitada
     public static boolean confereProduto(String codigo, double quantidade){
         Product product = null;
         try{
@@ -34,40 +28,26 @@ public class CaixaModel {
             .where()
             .eq("code", codigo)
             .and()
-            .eq("store_quantity", quantidade)
+            .ge("store_quantity", quantidade)
             .queryForFirst();
             
         } catch(Exception e){
             System.out.println("Erro ao buscar o produto: " + e.getMessage());
-        return false;
+            return false;
         }
-        return product != null;
-    }
-    //retira a quantidade requisitada da estante da loja
-    public static boolean retiraProduto(String codigo, double quantidade){
-        Product product = null;
-        try{
-            product = dao.queryBuilder()
-            .where()
-            .eq("code", codigo)
-            .queryForFirst();
-            if(product != null){
-                if(product.getStoreQuantity() >= 0){
-                    product.setStoreQuantity(product.getStoreQuantity() - quantidade);
-                    dao.update(product);
-                    return true;
-                }
-            } else{
+        if(product != null){
+            try{
+                product.setStoreQuantity(product.getStoreQuantity() - quantidade);
+                dao.update(product);
+            }
+            catch(SQLException e){
+                System.out.println("Erro ao retirar produto: " + e.getMessage());
                 return false;
             }
         }
-        catch(SQLException e){
-            System.out.println("Erro ao buscar produto: " + e.getMessage());
-        return false;
-        }
-        return false;
+        else return false;
+        return true;
     }
-    
 }
 
     

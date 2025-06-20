@@ -1,7 +1,5 @@
 package model;
 
- 
-
 import java.sql.*; 
 import com.j256.ormlite.jdbc.JdbcConnectionSource;
 
@@ -15,19 +13,17 @@ public class UserDB
    }    
    
    public JdbcConnectionSource getConnection() throws SQLException {
-      if ( databaseName == null ) {
-          throw new SQLException("database name is null");
-      }
-      if ( connection == null ) {
-          try {
-              connection = new JdbcConnectionSource("jdbc:sqlite:"+databaseName);             
-            } catch ( Exception e ) {
-                System.err.println( e.getClass().getName() + ": " + e.getMessage() );
-                System.exit(0);
-            }
-            System.out.println("Opened database successfully");
-      }
-      return connection;
+        if ( databaseName == null ) {
+            throw new SQLException("database name is null");
+        }
+        try {
+            connection = new JdbcConnectionSource("jdbc:sqlite:"+databaseName);             
+        } catch ( Exception e ) {
+            System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+            System.exit(0);
+        }
+        System.out.println("Opened database successfully");
+        return connection;
    }
    
    public void close() {

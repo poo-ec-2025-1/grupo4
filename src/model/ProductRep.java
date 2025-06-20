@@ -1,7 +1,5 @@
 package model;
 
- 
-
 import com.j256.ormlite.dao.DaoManager;
 import com.j256.ormlite.dao.Dao;
 import java.sql.SQLException;
@@ -9,7 +7,6 @@ import com.j256.ormlite.table.TableUtils;
 
 public class ProductRep
 {
-    private static ProductDB database;
     private static Dao<Product, Integer> dao;
     
     public ProductRep(ProductDB database) {
@@ -17,7 +14,6 @@ public class ProductRep
     }
     
     public static void setDatabase(ProductDB database) {
-        ProductRep.database = database;
         try {
             dao = DaoManager.createDao(database.getConnection(), Product.class);
             TableUtils.createTableIfNotExists(database.getConnection(), Product.class);
