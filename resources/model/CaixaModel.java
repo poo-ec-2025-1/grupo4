@@ -28,44 +28,45 @@ public class CaixaModel {
     
     //verifica se o produto está na loja
     public static boolean confereProduto(String codigo, double quantidade){
-        Product product = null;
-        try{
-            product = dao.queryBuilder()
-            .where()
-            .eq("code", codigo)
-            .and()
-            .eq("store_quantity", quantidade)
-            .queryForFirst();
-            
-        } catch(Exception e){
-            System.out.println("Erro ao buscar o produto: " + e.getMessage());
-        return false;
+    Product product = null;
+    try {
+        product = dao.queryBuilder()
+                .where()
+                .eq("code", codigo)
+                .queryForFirst();
+
+        if (product != null && product.getStoreQuantity() >= quantidade) {
+            return true;
         }
-        return product != null;
+    } catch (Exception e) {
+        System.out.println("Erro ao buscar o produto: " + e.getMessage());
     }
+    return false;
+    }
+
     //retira a quantidade requisitada da estante da loja
     public static boolean retiraProduto(String codigo, double quantidade){
-        Product product = null;
-        try{
-            product = dao.queryBuilder()
-            .where()
-            .eq("code", codigo)
-            .queryForFirst();
-            if(product != null){
-                if(product.getStoreQuantity() >= 0){
-                    product.setStoreQuantity(product.getStoreQuantity() - quantidade);
-                    dao.update(product);
-                    return true;
-                }
-            } else{
+    Product product = null;
+    try {
+        product = dao.queryBuilder()
+                .where()
+                .eq("code", codigo)
+                .queryForFirst();
+        if (product != null) {
+            if (product.getStoreQuantity() >= quantidade) {
+                product.setStoreQuantity(product.getStoreQuantity() - quantidade);
+                dao.update(product);
+                return true;
+            } else {
                 return false;
             }
+        } else {
+            return false;
         }
-        catch(SQLException e){
-            System.out.println("Erro ao buscar produto: " + e.getMessage());
-        return false;
-        }
-        return false;
+    } catch(SQLException e) {
+        System.out.println("Erro ao buscar produto: " + e.getMessage());
+    }
+    return false;
     }
     
 }
