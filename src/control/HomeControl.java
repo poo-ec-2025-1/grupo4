@@ -6,7 +6,7 @@ import javafx.fxml.FXML;
 public class HomeControl {
     @FXML
     void abrirCaixa(){
-        ScreenControl.changeScene("view/caixa.fxml");
+        ScreenControl.changeScene("/view/caixa.fxml");
     }
     @FXML
     void abrirRepositorio(){

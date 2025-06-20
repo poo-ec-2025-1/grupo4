@@ -28,7 +28,7 @@ public class LoginController {
             logado = userRep.login(userField.getText(), passwordField.getText());
             System.out.println("Botão clicado.");
             if(logado){
-                ScreenControl.changeScene("view/home.fxml");
+                ScreenControl.changeScene("/view/home.fxml");
             } else{
                 Alert alerta = new Alert(AlertType.ERROR);
                 alerta.setTitle("Login inválido");

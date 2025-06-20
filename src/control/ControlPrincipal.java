@@ -8,7 +8,7 @@ public class ControlPrincipal extends Application {
 
     public void start(Stage primaryStage) {
         ScreenControl.setStage(primaryStage);
-        ScreenControl.changeScene("view/login.fxml");
+        ScreenControl.changeScene("/view/login.fxml");
     }
     public static void main(String[] args){
         launch(args);

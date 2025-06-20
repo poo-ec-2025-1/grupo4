@@ -55,25 +55,4 @@ public class CaixaControl implements Initializable{
     public void voltarTelaAnterior(){
         ScreenControl.changeScene("view/home.fxml");
     }
-    /*
-        try {
-        // Carrega a nova interface
-            Parent root = FXMLLoader.load(getClass().getResource("src/view/home.fxml"));
-
-        // Cria uma nova janela
-            Stage novaJanela = new Stage();
-            novaJanela.setScene(new Scene(root));
-            novaJanela.show();
-
-        // Fecha a janela atual
-            Stage janelaAtual = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            janelaAtual.close();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-
-    }
-        */
 }
