@@ -23,7 +23,7 @@ public class ProductRep
         }            
     }
     
-    public Product create(Product product) {
+    public static Product create(Product product) {
         int nrows = 0;
         try {
             nrows = dao.create(product);

@@ -27,7 +27,7 @@
             </font>
         </Button>
       <Button id="limpar" layoutX="339.0" layoutY="280.0" mnemonicParsing="false" onAction="#limparCampos" style="-fx-background-color: #32CD32;" text="Limpar" textFill="#fffefe" />
-      <Label fx:id="mensagem" layoutX="229.0" layoutY="118.0" text="" textFill="#ee0000" />
+      <Label fx:id="mensagem" layoutX="229.0" layoutY="118.0" prefHeight="16.0" prefWidth="200.0" text="" textFill="#ee0000" />
       <Button id="voltar" layoutX="26.0" layoutY="24.0" mnemonicParsing="false" onAction="#voltarTelaAnterior" text="Voltar" />
     </children>
 </AnchorPane>

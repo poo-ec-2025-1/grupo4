@@ -1,6 +1,5 @@
 package model;
 
- 
 import java.text.ParseException;
 import java.util.Date;
 import java.text.SimpleDateFormat;
@@ -30,16 +29,19 @@ public class Product
     private String shelf;
     
     @DatabaseField
-    public double store_quantity;
+    private double store_quantity;
     
     @DatabaseField
-    public double stock_quantity;
+    private double stock_quantity;
     
     @DatabaseField(dataType=DataType.DATE)
-    public Date expiration;
+    private Date expiration;
     
     @DatabaseField
-    public double unit_price;
+    private double unit_price;
+
+    @DatabaseField
+    private String observation;
     
     public String printExpiration() {
         SimpleDateFormat dateFor = new SimpleDateFormat("dd/MM/yyyy");
@@ -47,10 +49,11 @@ public class Product
     }
     
     public Product(){}
+
     
     public Product(String name, String code,String section, String gondola,
     String shelf, double store_quantity, double stock_quantity, String expiration,
-    double unit_price){
+    double unit_price, String observation){
         this.name = name;
         this.code = code;
         this.section = section;
@@ -60,6 +63,7 @@ public class Product
         this.stock_quantity = stock_quantity;
         this.unit_price = unit_price;
         this.setExpiration(expiration);
+        this.observation = observation;
     }
 
     /**GET Method Propertie name*/
@@ -141,7 +145,6 @@ public class Product
     /**SET Method Propertie expiration*/
     public void setExpiration(String data){
         expiration = StringToDate(data);
-        this.expiration = expiration;
     }
     
     /**GET Method Propertie unit_price*/
@@ -169,5 +172,17 @@ public class Product
     public static String DateToString(Date data) {
         SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
         return formato.format(data);
+    }
+
+    public int getId(){
+        return this.Id;
+    }
+
+    public String getObservation(){
+        return observation;
+    }
+
+    public void setObservation(String observation){
+        this.observation = observation;
     }
 }
