@@ -42,6 +42,9 @@ public class Product
 
     @DatabaseField
     private String observation;
+
+    @DatabaseField
+    private String imagem;
     
     public String printExpiration() {
         SimpleDateFormat dateFor = new SimpleDateFormat("dd/MM/yyyy");
@@ -184,5 +187,9 @@ public class Product
 
     public void setObservation(String observation){
         this.observation = observation;
+    }
+
+    public void setImagem(String imagem){
+        this.imagem = imagem;
     }
 }

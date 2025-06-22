@@ -7,8 +7,9 @@ import javafx.stage.Stage;
 public class ControlPrincipal extends Application {
 
     public void start(Stage primaryStage) {
-        ScreenControl.setStage(primaryStage);
-        ScreenControl.changeScene("/view/login.fxml");
+        ScreenControl.setStage1(primaryStage);
+        ScreenControl.setStage2(new Stage());
+        ScreenControl.changeScene("/view/login.fxml", ScreenControl.stage1);
     }
     public static void main(String[] args){
         launch(args);

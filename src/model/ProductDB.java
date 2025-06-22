@@ -16,13 +16,15 @@ public class ProductDB
         if ( databaseName == null ) {
           throw new SQLException("database name is null");
         }
-        try {
-            connection = new JdbcConnectionSource("jdbc:sqlite:"+databaseName);             
-        } catch ( Exception e ) {
-            System.err.println( e.getClass().getName() + ": " + e.getMessage() );
-            System.exit(0);
+        if(connection == null){
+            try {
+                connection = new JdbcConnectionSource("jdbc:sqlite:"+databaseName);             
+            } catch ( Exception e ) {
+                System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+                System.exit(0);
+            }
         }
-            System.out.println("Opened database successfully");
+        System.out.println("Opened database successfully");
         return connection;
    }
    

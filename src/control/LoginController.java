@@ -26,7 +26,7 @@ public class LoginController {
         try{
             logado = userRep.login(userField.getText(), passwordField.getText());
             if(logado){
-                ScreenControl.changeScene("/view/home.fxml");
+                ScreenControl.changeScene("/view/home.fxml",  ScreenControl.stage1);
             } else{
                 Alert alerta = new Alert(AlertType.ERROR);
                 alerta.setTitle("Login inválido");

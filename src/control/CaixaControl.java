@@ -52,6 +52,6 @@ public class CaixaControl implements Initializable{
     @FXML
     public void voltarTelaAnterior(){
         produto.close();
-        ScreenControl.changeScene("/view/home.fxml");
+        ScreenControl.changeScene("/view/home.fxml", ScreenControl.stage1);
     }
 }

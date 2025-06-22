@@ -9,10 +9,6 @@ public class ProductRep
 {
     private static Dao<Product, Integer> dao;
     
-    public ProductRep(ProductDB database) {
-        ProductRep.setDatabase(database);
-    }
-    
     public static void setDatabase(ProductDB database) {
         try {
             dao = DaoManager.createDao(database.getConnection(), Product.class);
@@ -35,7 +31,7 @@ public class ProductRep
         return product;
     }    
 
-    public void update(Product product) {
+    public static void update(Product product) {
       try {
         int updatedRows = dao.update(product);
         if (updatedRows == 0) {
@@ -48,7 +44,7 @@ public class ProductRep
     }
     }
 
-    public void delete(Product product) {
+    public static void delete(Product product) {
       try {
         int deletedRows = dao.delete(product);
         if (deletedRows == 0) {

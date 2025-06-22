@@ -1,5 +1,6 @@
 package control;
 
+import java.awt.Label;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.function.UnaryOperator;
@@ -10,6 +11,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+
 
 public class ConferenteControl implements Initializable{
     
@@ -31,6 +35,12 @@ public class ConferenteControl implements Initializable{
     public TextField prateleira;
     @FXML
     public TextArea observacoes;
+    @FXML
+    public ImageView foto;
+    @FXML
+    private Label mensagem;
+
+    public static String fotoEndereco; 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -44,7 +54,6 @@ public class ConferenteControl implements Initializable{
                 return null; 
             }
         };
-
         TextFormatter<String> textFormatter = new TextFormatter<>(filtro);
         dataValidade.setTextFormatter(textFormatter);
     }
@@ -62,10 +71,28 @@ public class ConferenteControl implements Initializable{
         produto.setShelf(prateleira.getText());
         produto.setObservation(observacoes.getText());
         produto.setStoreQuantity(0);
+        produto.setImagem(fotoEndereco);
+        model.ProductDB database = new model.ProductDB("produtos");
+        model.ProductRep.setDatabase(database);
         model.ProductRep.create(produto);
+        mensagem.setText("Dados Salvos");
     }
     @FXML
     public void addFoto(){
-        
+        ScreenControl.changeScene("/view/camera.fxml", ScreenControl.stage2);
     }
+
+    @FXML
+    public void atualizar(){
+        Image image = new Image(fotoEndereco);
+        foto.setImage(image);
+        mensagem.setText("Imagem atualizada");
+    }
+
+    @FXML
+    public void voltar(){
+        ScreenControl.changeScene("/view/home.fxml", ScreenControl.stage1);
+    }
+
 }
+
