@@ -1,6 +1,5 @@
 package model;
 
- 
 import java.text.ParseException;
 import java.util.Date;
 import java.text.SimpleDateFormat;
@@ -10,7 +9,10 @@ import com.j256.ormlite.field.DataType;
 
 @DatabaseTable(tableName = "produtos")
 public class Product
-{     
+{  
+    @DatabaseField(generatedId = true)
+    private int Id;
+       
     @DatabaseField
     private String name;
     
@@ -27,16 +29,28 @@ public class Product
     private String shelf;
     
     @DatabaseField
-    public double store_quantity;
+    private String sectionE;
     
     @DatabaseField
-    public double stock_quantity;
+    private String gondolaE;
+    
+    @DatabaseField
+    private String shelfE;
+    
+    @DatabaseField
+    private double store_quantity;
+    
+    @DatabaseField
+    private double stock_quantity;
     
     @DatabaseField(dataType=DataType.DATE)
-    public Date expiration;
+    private Date expiration;
     
     @DatabaseField
-    public double unit_price;
+    private double unit_price;
+
+    @DatabaseField
+    private String observation;
     
     public String printExpiration() {
         SimpleDateFormat dateFor = new SimpleDateFormat("dd/MM/yyyy");
@@ -44,10 +58,12 @@ public class Product
     }
     
     public Product(){}
+
     
     public Product(String name, String code,String section, String gondola,
     String shelf, double store_quantity, double stock_quantity, String expiration,
-    double unit_price){
+    double unit_price, String observation, String sectionE, String gondolaE,
+    String shelfE){
         this.name = name;
         this.code = code;
         this.section = section;
@@ -57,6 +73,10 @@ public class Product
         this.stock_quantity = stock_quantity;
         this.unit_price = unit_price;
         this.setExpiration(expiration);
+        this.observation = observation;
+        this.sectionE = sectionE;
+        this.gondolaE = gondolaE;
+        this.shelfE = shelfE;
     }
 
     /**GET Method Propertie name*/
@@ -138,7 +158,6 @@ public class Product
     /**SET Method Propertie expiration*/
     public void setExpiration(String data){
         expiration = StringToDate(data);
-        this.expiration = expiration;
     }
     
     /**GET Method Propertie unit_price*/
@@ -166,5 +185,47 @@ public class Product
     public static String DateToString(Date data) {
         SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
         return formato.format(data);
+    }
+
+    public int getId(){
+        return this.Id;
+    }
+
+    public String getObservation(){
+        return observation;
+    }
+
+    public void setObservation(String observation){
+        this.observation = observation;
+    }
+    
+    /**GET Method Propertie sectionE*/
+    public String getSectionE(){
+        return this.sectionE;
+    }
+
+    /**SET Method Propertie sectionE*/
+    public void setSectionE(String sectionE){
+        this.sectionE = sectionE;
+    }
+    
+    /**GET Method Propertie shelfE*/
+    public String getShelfE(){
+        return this.shelfE;
+    }
+
+    /**SET Method Propertie shelfE*/
+    public void setShelfE(String shelfE){
+        this.shelfE = shelfE;
+    }
+    
+    /**GET Method Propertie gondolaE*/
+    public String getGondolaE(){
+        return this.gondolaE;
+    }
+
+    /**SET Method Propertie gondolaE*/
+    public void setGondolaE(String gondolaE){
+        this.gondolaE = gondolaE;
     }
 }

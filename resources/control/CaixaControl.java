@@ -37,10 +37,9 @@ public class CaixaControl implements Initializable{
     public void vender(){
         String cod = txtCodigo.getText();
         double quant = Double.parseDouble(txtQuantidade.getText());
-        model.CaixaModel caixa = new model.CaixaModel(produto);
+        model.CaixaModel.setDatabase(produto);
 
-        if(caixa.confereProduto(cod, quant)){
-            caixa.retiraProduto(cod, quant);
+        if(model.CaixaModel.confereProduto(cod, quant)){
             mensagem.setText("Vendido");
             limparCampos();
         }

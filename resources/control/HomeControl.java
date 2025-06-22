@@ -10,10 +10,10 @@ public class HomeControl {
     }
     @FXML
     void abrirRepositorio(){
-        //ScreenControl.changeScene("/repositorio.fxml");
+        ScreenControl.changeScene("/view/repositorio.fxml");
     }
     @FXML
     void abrirConferente(){
-        //ScreenControl.changeScene("/conferente.fxml");
+        ScreenControl.changeScene("/view/conferente.fxml");
     }
 }

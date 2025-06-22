@@ -27,7 +27,7 @@ public class ProductRep
         }            
     }
     
-    public Product create(Product product) {
+    public static Product create(Product product) {
         int nrows = 0;
         try {
             nrows = dao.create(product);
@@ -39,7 +39,7 @@ public class ProductRep
         return product;
     }    
 
-    public void update(Product product) {
+    public static void update(Product product) {
       try {
         int updatedRows = dao.update(product);
         if (updatedRows == 0) {
@@ -52,7 +52,7 @@ public class ProductRep
     }
     }
 
-    public void delete(Product product) {
+    public static void delete(Product product) {
       try {
         int deletedRows = dao.delete(product);
         if (deletedRows == 0) {
@@ -64,5 +64,14 @@ public class ProductRep
         System.out.println("Erro ao deletar produto: " + e.getMessage());
     }
     }
+    
+    public static Product buscarPorCodigo(String code) throws SQLException {
+        dao.clearObjectCache();
+        return dao.queryBuilder()
+            .where()
+            .eq("code", code)
+            .queryForFirst();
+    }
+
     
 }

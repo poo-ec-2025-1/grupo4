@@ -1,29 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fillWidth="true" prefHeight="586.0" prefWidth="366.0" spacing="10"
-      xmlns="http://javafx.com/javafx/24.0.1"
-      xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="control.HomeControl">
+<VBox alignment="CENTER" fillWidth="true" prefHeight="600.0" prefWidth="400.0" spacing="20.0" style="-fx-background-color: linear-gradient(to bottom, #f0f4f8, #d9e2ec);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.HomeControl">
 
-    <Button fx:id="caixaButton" maxWidth="Infinity" prefHeight="262.0" prefWidth="366.0" onAction="#abrirCaixa" text="CAIXA">
+    <padding>
+        <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+    </padding>
+   <Label prefHeight="78.0" prefWidth="130.0" text="Menu">
+      <font>
+         <Font size="47.0" />
+      </font>
+   </Label>
+
+    <Button fx:id="caixaButton" maxWidth="Infinity" onAction="#abrirCaixa" prefHeight="80.0" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-background-radius: 10;" text="CAIXA">
         <font>
-            <Font name="Noto Sans Bold" size="64.0" />
+            <Font name="Segoe UI Bold" size="28.0" />
         </font>
     </Button>
-    
-    <Button fx:id="repositorioButton" maxWidth="Infinity" prefHeight="289.0" prefWidth="366.0" onAction="#abrirRepositorio" text="REPOSITÓRIO">
+
+    <Button fx:id="repositorioButton" maxWidth="Infinity" onAction="#abrirRepositorio" prefHeight="80.0" style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-background-radius: 10;" text="REPOSITÓRIO">
         <font>
-            <Font name="Noto Sans Regular" size="43.0" />
+            <Font name="Segoe UI" size="24.0" />
         </font>
     </Button>
-    
-    <Button fx:id="conferenteButton" maxWidth="Infinity" prefHeight="286.0" prefWidth="366.0" onAction="#abrirConferente" text="CONFERENTE">
+
+    <Button fx:id="conferenteButton" maxWidth="Infinity" onAction="#abrirConferente" prefHeight="80.0" style="-fx-background-color: #FF9800; -fx-text-fill: white; -fx-background-radius: 10;" text="CONFERENTE">
         <font>
-            <Font name="Noto Sans Regular" size="44.0" />
+            <Font name="Segoe UI" size="24.0" />
         </font>
     </Button>
 
