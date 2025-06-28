@@ -17,35 +17,10 @@ Yan Freire Caser(yancaser) : Controller;
 
 Seção 4: Modelagem Inicial:
  
- Diagrama de casos de uso
+ #Diagrama de casos de uso:
 
 ![image](https://github.com/user-attachments/assets/529e116d-3d90-4aa3-8505-17a9da10f902)
 
-@startuml
+#Diagrama de Sequência:
 
-title Diagrama de Caso de Uso - Sistema de Estoque
-
-
-actor Usuário
-
-usecase "Realizar Login" as UC1
-
-usecase "Gerenciar quantidade de produtos" as UC2
-
-usecase "Consultar estoque" as UC3
-
-usecase "Cadastrar um novo produto" as UC4
-
-usecase "Vender Produtos" as UC5
-
-Usuário --> UC1
-
-Usuário--> UC2
-
-Usuário--> UC3
-
-Usuário --> UC4
-
-Usuário --> UC5
-
-@enduml
+![Layout de loja](https://github.com/user-attachments/assets/6d5d3907-30a2-439b-9600-7ad341b76c11)
