@@ -9,7 +9,7 @@ No incio, fizemos reuniões e conversas entre os membros do grupo a fim de decid
 2 - Contribuição para a Etapa 1 do projeto:
 
 Minha contribuição para a Etapa 1 do Projeto foi iniciar a documentação do grupo, colocando os principais pontos e objetivos do projeto.
-Além disso, fiz o diagrama de  casos de uso e me coloquei à disposição para auxiliar os demais membros no que eles necessitavam.
+Além disso, fiz o diagrama de  casos de uso e me coloquei à disposição para auxiliar os demais membros.
 
 3 - Contribuição além da contribuição:
 
