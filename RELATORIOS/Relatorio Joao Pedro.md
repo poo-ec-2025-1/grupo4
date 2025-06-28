@@ -7,11 +7,12 @@ Aluno: João Pedro Rodrigues de Almeida.
 No incio, fizemos reuniões e conversas entre os membros do grupo a fim de decidir os cargos de cada um. Fiquei responsável pela produção da documentação do projeto do grupo (Grupo 4).
 
 2 - Contribuição para a Etapa 1 do projeto:
-Minha Contribuição na Etapa 1 do projeto, honestamente, foi menor e menos relevantes do que a dos meus colegas, embora tenha feito um comit sobre as 3 primeiras Seções exigidas pelo professor.
-Além disso, me coloquei à disposição para auxiliar os demais membros do grupo. Também criei o diagrama de casos de uso.
+
+Minha contribuição para a Etapa 1 do Projeto foi iniciar a Documentação do grupo, colocando os principais pontos e objetivos do projeto.
+Além disso, fiz o diagrama de  casos de uso e me coloquei à disposição para auxiliar os demais membros no que eles necessitavam.
 
 3 - Contribuição além da contribuição:
-Contribui com as decisões
+Contribui com as decisões iniciais que deram origem ao projeto.
 
 4 - Considerações gerais:
 
