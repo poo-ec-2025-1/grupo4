@@ -12,7 +12,9 @@ Minha contribuição para a Etapa 1 do Projeto foi iniciar a documentação do g
 Além disso, fiz o diagrama de  casos de uso e me coloquei à disposição para auxiliar os demais membros no que eles necessitavam.
 
 3 - Contribuição além da contribuição:
+
 Contribui com as decisões iniciais que deram origem ao projeto.
+Álem disso, auxiliei os colegas na produção da View.
 
 4 - Considerações gerais:
 
