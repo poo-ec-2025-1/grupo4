@@ -4,6 +4,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -13,14 +15,14 @@
         
         <PasswordField fx:id="passwordField" layoutX="226.0" layoutY="220.0" AnchorPane.leftAnchor="226.0" AnchorPane.topAnchor="220.0" />
 
-    <Label layoutX="183.0" layoutY="48.0" text="TOQUE ESTOQUE" textFill="LIMEGREEN">
+    <Label layoutX="183.0" layoutY="106.0" text="TOQUE ESTOQUE" textFill="WHITE">
         <font>
             <Font name="Monospaced Bold" size="30.0" />
         </font>
     </Label>
 
-    <Label layoutX="172.0" layoutY="163.0" text="Usuário:" textFill="LIMEGREEN" />
-    <Label layoutX="182.0" layoutY="224.0" text="Senha:" textFill="LIMEGREEN" />
+    <Label layoutX="174.0" layoutY="162.0" text="Usuário:" textFill="WHITE" />
+    <Label layoutX="182.0" layoutY="224.0" text="Senha:" textFill="WHITE" />
 
     <Button fx:id="entrarButton" layoutX="260.0" layoutY="271.0" mnemonicParsing="false" onAction="#fazerLogin" style="-fx-background-color: #32CD32;" text="Entrar" textFill="WHITE">
         <font>
@@ -33,5 +35,10 @@
             <Font size="20.0" />
         </font>
     </Label>
+      <ImageView fitHeight="113.0" fitWidth="121.0" layoutX="240.0">
+         <image>
+            <Image url="@../../Downloads/LOGO%20TE%20-%20SEM%20FUNDO.png" />
+         </image>
+      </ImageView>
 </children>
 </AnchorPane>
