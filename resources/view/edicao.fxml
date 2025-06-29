@@ -14,18 +14,16 @@
       <TextField fx:id="dataValidade" layoutX="22.0" layoutY="122.0" promptText="Data de Validade" />
       <TextField fx:id="quantidade" layoutX="22.0" layoutY="171.0" prefHeight="31.0" prefWidth="222.0" promptText="Qt. para passar para a loja" />
       <TextField fx:id="preco" layoutX="22.0" layoutY="219.0" promptText="Preço Atual" />
-      <TextField fx:id="secao" layoutX="22.0" layoutY="264.0" promptText="Seção" />
-      <TextField fx:id="gondola" layoutX="22.0" layoutY="308.0" promptText="Gôndola" />
+      <TextField fx:id="enderecoL" layoutX="22.0" layoutY="264.0" promptText="Endereço da Loja" />
       <TextArea fx:id="observacoes" layoutX="281.0" layoutY="116.0" prefHeight="103.0" prefWidth="285.0" promptText="Observações" />
-      <TextField fx:id="prateleira" layoutX="22.0" layoutY="357.0" promptText="Prateleira" />
       <Button layoutX="278.0" layoutY="469.0" mnemonicParsing="false" onAction="#salvar" prefHeight="40.0" prefWidth="77.0" text="Salvar" />
       <Label layoutX="244.0" layoutY="4.0" text="Edição ou Reposição de Produtos" />
       <Button layoutX="385.0" layoutY="469.0" mnemonicParsing="false" onAction="#deletar" prefHeight="40.0" prefWidth="77.0" text="Deletar" />
       <Button layoutX="488.0" layoutY="469.0" mnemonicParsing="false" onAction="#voltarTelaAnterior" prefHeight="40.0" prefWidth="77.0" text="Voltar" />
       <Label fx:id="label" layoutX="360.0" layoutY="313.0" />
-      <TextField fx:id="secaoE" layoutX="22.0" layoutY="408.0" promptText="Seção Estoque" />
-      <TextField fx:id="gondolaE" layoutX="22.0" layoutY="458.0" promptText="Gôndola Estoque" />
-      <TextField fx:id="prateleiraE" layoutX="22.0" layoutY="508.0" promptText="Prateleira Estoque" />
+      <TextField fx:id="secaoE" layoutX="22.0" layoutY="308.0" promptText="Seção Estoque" />
+      <TextField fx:id="gondolaE" layoutX="22.0" layoutY="350.0" promptText="Gôndola Estoque" />
+      <TextField fx:id="prateleiraE" layoutX="22.0" layoutY="393.0" promptText="Prateleira Estoque" />
       <TextField fx:id="quantidadeE" layoutX="281.0" layoutY="59.0" prefHeight="31.0" prefWidth="222.0" promptText="Qt. para passar para o estoque" />
       <Label fx:id="storeQuantity" layoutX="281.0" layoutY="235.0" />
       <Label fx:id="stockQuantity" layoutX="531.0" layoutY="235.0" />
