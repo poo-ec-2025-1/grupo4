@@ -14,3 +14,13 @@ João Pedro Rodrigues de Almeida(JoaoAlmeida2005): Documentação do Projeto;
 José Augusto Gomes de Mendonça(JoseAugustoGM): Model;
 Vitor Hugo de Oliveira Moreira(Toorugo): View;
 Yan Freire Caser(yancaser) : Controller;
+
+Seção 4: Modelagem Inicial:
+ 
+ #Diagrama de casos de uso:
+
+![image](https://github.com/user-attachments/assets/529e116d-3d90-4aa3-8505-17a9da10f902)
+
+#Diagrama de Sequência:
+
+![Layout de loja](https://github.com/user-attachments/assets/6d5d3907-30a2-439b-9600-7ad341b76c11)

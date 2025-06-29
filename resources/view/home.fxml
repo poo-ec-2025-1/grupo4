@@ -6,32 +6,32 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" fillWidth="true" prefHeight="600.0" prefWidth="400.0" spacing="20.0" style="-fx-background-color: linear-gradient(to bottom, #f0f4f8, #d9e2ec);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.HomeControl">
+<VBox alignment="CENTER" fillWidth="true" prefHeight="600.0" prefWidth="400.0" spacing="20.0" style="-fx-background-color: #363636;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.HomeControl">
 
     <padding>
         <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
     </padding>
-   <Label prefHeight="78.0" prefWidth="130.0" text="Menu">
+   <Label prefHeight="78.0" prefWidth="112.0" text="MENU" textFill="WHITE">
       <font>
-         <Font size="47.0" />
+         <Font name="Monospaced Bold" size="45.0" />
       </font>
    </Label>
 
-    <Button fx:id="caixaButton" maxWidth="Infinity" onAction="#abrirCaixa" prefHeight="80.0" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-background-radius: 10;" text="CAIXA">
+    <Button fx:id="caixaButton" maxWidth="Infinity" onAction="#abrirCaixa" prefHeight="80.0" style="-fx-background-color: #32CD32; -fx-text-fill: white; -fx-background-radius: 10;" text="CAIXA">
         <font>
-            <Font name="Segoe UI Bold" size="28.0" />
+            <Font name="Monospaced Bold" size="40.0" />
         </font>
     </Button>
 
-    <Button fx:id="repositorioButton" maxWidth="Infinity" onAction="#abrirRepositorio" prefHeight="80.0" style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-background-radius: 10;" text="REPOSITÓRIO">
+    <Button fx:id="repositorioButton" maxWidth="Infinity" onAction="#abrirRepositorio" prefHeight="80.0" style="-fx-background-color: #1E90FF; -fx-text-fill: white; -fx-background-radius: 10;" text="REPOSITÓRIO">
         <font>
-            <Font name="Segoe UI" size="24.0" />
+            <Font name="Monospaced Bold" size="30.0" />
         </font>
     </Button>
 
     <Button fx:id="conferenteButton" maxWidth="Infinity" onAction="#abrirConferente" prefHeight="80.0" style="-fx-background-color: #FF9800; -fx-text-fill: white; -fx-background-radius: 10;" text="CONFERENTE">
         <font>
-            <Font name="Segoe UI" size="24.0" />
+            <Font name="Monospaced Bold" size="30.0" />
         </font>
     </Button>
 
