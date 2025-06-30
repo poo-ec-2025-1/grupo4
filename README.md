@@ -110,7 +110,7 @@ Criar um aplicativo que auxilie estabelecimentos comerciais no gerenciamento de 
 
 ---
 
-### 4.  Dar Baixa em Produto
+### 4.  Vender Produto
 
 | Campo            | Descrição                                                                 |
 |------------------|---------------------------------------------------------------------------|
@@ -119,35 +119,11 @@ Criar um aplicativo que auxilie estabelecimentos comerciais no gerenciamento de 
 | **Pré-condição** | Produto deve existir e ter quantidade disponível.                         |
 | **Fluxo Principal** | 1. Localiza o produto. <br> 2. Informa a quantidade a ser retirada. <br> 3. Clica em "Confirmar Baixa". <br> 4. Sistema atualiza o estoque. |
 | **Fluxo Alternativo** | Quantidade solicitada maior do que disponível → erro exibido.         |
-| **Pós-condição** | Quantidade do produto atualizada no estoque.                             |
+| **Pós-condição** | Quantidade do produto atualizada na loja.                             |
 
 ---
 
-### 5.  Gerar Relatórios
-
-| Campo            | Descrição                                                                 |
-|------------------|---------------------------------------------------------------------------|
-| **Ator Principal**      |  Usuário autenticado.                                             |
-| **Objetivo**     | Obter relatórios sobre o estoque (ex: produtos com baixa quantidade, vencidos, movimentações). |
-| **Pré-condição** | Estar logado.                                                             |
-| **Fluxo Principal** | 1. Acessa área de relatórios. <br> 2. Seleciona tipo de relatório. <br> 3. Sistema gera e exibe/permite download. |
-| **Pós-condição** | Relatório disponível para visualização ou exportação.                    |
-
----
-
-### 6.  Gerenciar Contas de Usuários
-
-| Campo            | Descrição                                                                 |
-|------------------|---------------------------------------------------------------------------|
-| **Ator Principal**      | Usuário autenticado.                                             |
-| **Objetivo**     | Criar, editar ou remover contas de usuários do sistema.                   |
-| **Pré-condição** | Estar logado como administrador.                                          |
-| **Fluxo Principal** | 1. Acessa tela de usuários. <br> 2. Cadastra novo usuário (nome, login, senha, tipo de acesso). <br> 3. Edita ou remove conforme necessário. |
-| **Pós-condição** | Sistema com controle de acesso atualizado.                               |
-
----
-
-### 7.  Realizar Login
+### 5.  Realizar Login
 
 | Campo            | Descrição                                                                 |
 |------------------|---------------------------------------------------------------------------|
