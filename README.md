@@ -24,3 +24,7 @@ Seção 4: Modelagem Inicial:
 #Diagrama de Sequência:
 
 ![Layout de loja](https://github.com/user-attachments/assets/6d5d3907-30a2-439b-9600-7ad341b76c11)
+
+#Diagrama de Casos:
+![image](https://github.com/user-attachments/assets/65c1f76a-8e8d-42ff-ae47-e1406323af91)
+
