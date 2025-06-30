@@ -57,16 +57,103 @@ Criar um aplicativo que auxilie estabelecimentos comerciais no gerenciamento de 
 
 ---
 
-Seção 4: Modelagem Inicial:
- 
- #Diagrama de casos de uso:
+## Seção 4: Modelagem Inicial:
 
-![image](https://github.com/user-attachments/assets/529e116d-3d90-4aa3-8505-17a9da10f902)
-
-#Diagrama de Sequência:
+ ## Diagrama de Sequência:
 
 ![Layout de loja](https://github.com/user-attachments/assets/6d5d3907-30a2-439b-9600-7ad341b76c11)
-
-#Diagrama de Casos:
+---
+ ## Diagrama de Casos:
 ![image](https://github.com/user-attachments/assets/65c1f76a-8e8d-42ff-ae47-e1406323af91)
+---
+ ## Diagrama de casos de uso:
 
+![image](https://github.com/user-attachments/assets/529e116d-3d90-4aa3-8505-17a9da10f902)
+---
+## Casos de Uso:
+
+### 1.  Cadastrar Produto
+
+| Campo            | Descrição                                                                 |
+|------------------|---------------------------------------------------------------------------|
+| **Ator Principal**      |  Usuário autenticado.             |
+| **Objetivo**     | Adicionar um novo produto ao sistema com todas as informações necessárias.|
+| **Pré-condição** | Estar logado no sistema.                                                  |
+| **Fluxo Principal** | 1. Acessa tela de cadastro. <br> 2. Preenche dados do produto (nome, validade, categoria, localização, quantidade, etc). <br> 3. Clica em "Salvar". <br> 4. Sistema valida e grava os dados. <br> 5. Confirmação é exibida. |
+| **Fluxo Alternativo** | Campos obrigatórios ausentes → erro exibido e cadastro não finalizado. |
+| **Pós-condição** | Produto salvo no sistema e visível na listagem de estoque.                |
+
+---
+
+### 2.  Consultar Estoque
+
+| Campo            | Descrição                                                                 |
+|------------------|---------------------------------------------------------------------------|
+| **Ator Principal**      | Usuário autenticado.                                             |
+| **Objetivo**     | Ver os produtos cadastrados e seus dados.                                 |
+| **Pré-condição** | Estar logado no sistema.                                                  |
+| **Fluxo Principal** | 1. Acessa tela de consulta. <br> 2. Visualiza lista de produtos. <br> 3. Pode usar filtros ou pesquisar por nome/código. |
+| **Fluxo Alternativo** | Produto não encontrado → mensagem de "nenhum resultado".              |
+| **Pós-condição** | Produtos exibidos com seus dados atualizados.                            |
+
+---
+
+### 3.  Atualizar Informações de Produto
+
+| Campo            | Descrição                                                                 |
+|------------------|---------------------------------------------------------------------------|
+| **Ator Principal**      | Usuário autenticado.                                             |
+| **Objetivo**     | Corrigir ou alterar informações de um produto.                            |
+| **Pré-condição** | Produto já existente e login realizado.                                   |
+| **Fluxo Principal** | 1. Acessa tela de consulta. <br> 2. Seleciona produto. <br> 3. Altera campos desejados. <br> 4. Salva alterações. <br> 5. Sistema confirma atualização. |
+| **Pós-condição** | Informações do produto atualizadas com sucesso.                          |
+
+---
+
+### 4.  Dar Baixa em Produto
+
+| Campo            | Descrição                                                                 |
+|------------------|---------------------------------------------------------------------------|
+| **Ator Principal**      |  Usuário autenticado.                                             |
+| **Objetivo**     | Reduzir quantidade de um produto ao ser retirado do estoque.              |
+| **Pré-condição** | Produto deve existir e ter quantidade disponível.                         |
+| **Fluxo Principal** | 1. Localiza o produto. <br> 2. Informa a quantidade a ser retirada. <br> 3. Clica em "Confirmar Baixa". <br> 4. Sistema atualiza o estoque. |
+| **Fluxo Alternativo** | Quantidade solicitada maior do que disponível → erro exibido.         |
+| **Pós-condição** | Quantidade do produto atualizada no estoque.                             |
+
+---
+
+### 5.  Gerar Relatórios
+
+| Campo            | Descrição                                                                 |
+|------------------|---------------------------------------------------------------------------|
+| **Ator Principal**      |  Usuário autenticado.                                             |
+| **Objetivo**     | Obter relatórios sobre o estoque (ex: produtos com baixa quantidade, vencidos, movimentações). |
+| **Pré-condição** | Estar logado.                                                             |
+| **Fluxo Principal** | 1. Acessa área de relatórios. <br> 2. Seleciona tipo de relatório. <br> 3. Sistema gera e exibe/permite download. |
+| **Pós-condição** | Relatório disponível para visualização ou exportação.                    |
+
+---
+
+### 6.  Gerenciar Contas de Usuários
+
+| Campo            | Descrição                                                                 |
+|------------------|---------------------------------------------------------------------------|
+| **Ator Principal**      | Usuário autenticado.                                             |
+| **Objetivo**     | Criar, editar ou remover contas de usuários do sistema.                   |
+| **Pré-condição** | Estar logado como administrador.                                          |
+| **Fluxo Principal** | 1. Acessa tela de usuários. <br> 2. Cadastra novo usuário (nome, login, senha, tipo de acesso). <br> 3. Edita ou remove conforme necessário. |
+| **Pós-condição** | Sistema com controle de acesso atualizado.                               |
+
+---
+
+### 7.  Realizar Login
+
+| Campo            | Descrição                                                                 |
+|------------------|---------------------------------------------------------------------------|
+| **Ator Principal**      |  Usuário autenticado.                |
+| **Objetivo**     | Acessar o sistema de acordo com seu perfil.                               |
+| **Pré-condição** | Ter uma conta cadastrada.                                                 |
+| **Fluxo Principal** | 1. Informa login e senha. <br> 2. Sistema verifica credenciais. <br> 3. Usuário é redirecionado para sua tela inicial. |
+| **Fluxo Alternativo** | Dados inválidos → mensagem de erro.                                  |
+| **Pós-condição** | Acesso permitido ao sistema com base no perfil.                          |
