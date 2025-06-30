@@ -1,19 +1,61 @@
-# grupo4
-Projeto do Grupo 4
-Seção 1: Nosso app tem como objetivo melhorar a dinâmica de organização de estoques e otimizar a comunicação da equipe de logística com relação a estocagem e eficiência de tempo.
-O funcionamento do nosso app é simples, terá um layoult inicial em que o usuário insira seu login e senha, criados pelo Adm, responsável pela criação e gerenciamento dos logins. Assim que o usuário entre na página seguinte, terá opções 4 opções para escolher: 1- layolt de Loja; 2- Configuração de Estoque; 3- Notificações de loja; 4- Chat de conversa.
-Assim poderá conferir informações geradas por outros usuários e gerar as suas proprias informações a respeito de produtos presentes no estoque e nas prateleiras. 
-Temos como principal público-alvo o Comércios de varejo. 
-O principal problema hoje na questão dos estoques é a ineficiência na logística de comércios de varejo, uma vez que é extremamente complexo a organização de estoque unida à entrada e à saída de produtos do estabelecimento pela falta de interações entre funcionários.  
-Nossa motivação para o densenvolvimento desse sistema está diretamente ligada á questão prática, já que o problema foi vivenciado por alguns integrantes do grupo, que sofreram com a ausência de uma plataforma/entidade auxiliadora.
+#  Projeto do Grupo 4 – Sistema de Organização de Estoques
 
-Seção 2: Nosso objetivo geral com esse app é auxiliar os estabelecimentos com a questão da organização de seus produtos, funcionários, tempo e financeiro. 
+##  Membros do Grupo
 
-Seção 3: A organição das tarefas do grupo foi decidida desta maneira:
-João Pedro Rodrigues de Almeida(JoaoAlmeida2005): Documentação do Projeto;
-José Augusto Gomes de Mendonça(JoseAugustoGM): Model;
-Vitor Hugo de Oliveira Moreira(Toorugo): View;
-Yan Freire Caser(yancaser) : Controller;
+- **Vitor Hugo de Oliveira Moreira** – *Interface (View)* – `@toorugo`
+- **João Pedro Rodrigues de Almeida** – *Documentação* – `@JoaoAlmeida2005`
+- **José Augusto Gomes de Mendonça** – *Modelagem (Model)* – `@JoseAugustoGM`
+- **Yan Freire Caser** – *Controlador (Controller)* – `@yancaser`
+
+---
+
+##  Seção 1: Visão Geral do Projeto
+
+Nosso aplicativo tem como objetivo **melhorar a organização do estoque** e otimizar a **comunicação entre os funcionários**, com foco no setor de logística de comércios varejistas.
+
+A ideia é permitir que os colaboradores registrem e acessem facilmente informações sobre os produtos nas prateleiras e no estoque, favorecendo o fluxo de informações e reduzindo erros.
+
+### Funcionalidades principais:
+
+- **Login de usuário**
+  - Cada usuário acessa com login e senha.
+  - Não há distinção entre administrador e funcionário.
+  
+- **Menu com 4 opções após login:**
+  1. *Layout da Loja* – Visualização e mapeamento de organização física.
+  2. *Configuração de Estoque* – Cadastro, consulta e atualização de produtos.
+  3. *Notificações da Loja* – Alertas sobre prazos, vencimentos e movimentações.
+  4. *Bate-papo Interno* – Comunicação simples entre os colaboradores.
+
+### Problemas identificados:
+
+- Baixa eficiência logística no comércio de varejo.
+- Falta de interação e comunicação entre funcionários.
+- Dificuldade na entrada, saída e localização de produtos.
+- Ausência de uma plataforma centralizada e acessível para controle do estoque.
+
+### Motivação:
+
+A motivação surgiu a partir da vivência real de membros do grupo que trabalharam em locais com esse tipo de dificuldade. Notou-se a ausência de uma solução prática e digital que organizasse essas informações de forma compartilhada, clara e funcional.
+
+---
+
+##  Seção 2: Objetivo Geral
+
+Criar um aplicativo que auxilie estabelecimentos comerciais no gerenciamento de produtos, organização da equipe, controle de tempo e melhoria da comunicação interna.
+
+---
+
+##  Seção 3: Organização das Tarefas
+
+| Membro                          | Responsabilidade         |
+|---------------------------------|--------------------------|
+| João Pedro Rodrigues de Almeida | Documentação             |
+| José Augusto Gomes de Mendonça  | Modelagem de dados       |
+| Vitor Hugo de Oliveira Moreira  | Interface gráfica (View) |
+| Yan Freire Caser                | Controlador (Controller) |
+
+---
 
 Seção 4: Modelagem Inicial:
  
