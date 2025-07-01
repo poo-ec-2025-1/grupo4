@@ -6,23 +6,47 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.ConferenteControl">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="435.0" prefWidth="600.0" style="-fx-background-color: #363636;" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.ConferenteControl">
    <children>
-      <TextField fx:id="nome" layoutX="22.0" layoutY="29.0" promptText="Nome" />
-      <TextField fx:id="codigo" layoutX="22.0" layoutY="74.0" promptText="Código" />
-      <TextField fx:id="dataValidade" layoutX="22.0" layoutY="122.0" promptText="Data de Validade" />
-      <TextField fx:id="quantidade" layoutX="22.0" layoutY="171.0" promptText="Quantidade" />
-      <TextField fx:id="preco" layoutX="22.0" layoutY="219.0" promptText="Preço Atual" />
-      <TextField fx:id="secao" layoutX="22.0" layoutY="264.0" promptText="Seção" />
-      <TextField fx:id="gondola" layoutX="22.0" layoutY="308.0" promptText="Gondola" />
-      <TextArea fx:id="observacoes" layoutX="207.0" layoutY="29.0" prefHeight="103.0" prefWidth="384.0" promptText="Observações" />
-      <ImageView fx:id="foto" fitHeight="186.0" fitWidth="309.0" layoutX="231.0" layoutY="183.0" opacity="0.0" pickOnBounds="true" preserveRatio="true" />
-      <Button layoutX="213.0" layoutY="146.0" mnemonicParsing="false" onAction="#addFoto" text="Add Foto" />
-      <TextField fx:id="prateleira" layoutX="22.0" layoutY="357.0" promptText="Prateleira" />
-      <Button layoutX="509.0" layoutY="138.0" mnemonicParsing="false" onAction="#salvarInformacoes" prefHeight="40.0" prefWidth="77.0" text="Salvar" />
-      <Button layoutX="524.0" layoutY="357.0" mnemonicParsing="false" onAction="#voltar" text="voltar" />
-      <Button layoutX="311.0" layoutY="146.0" mnemonicParsing="false" onAction="#atualizar" text="Atualizar" />
-      <Label fx:id="mensagem" layoutX="213.0" layoutY="373.0" />
+      <TextField fx:id="nome" layoutX="22.0" layoutY="65.0" prefHeight="25.0" prefWidth="131.0" promptText="Nome" />
+      <TextField fx:id="codigo" layoutX="22.0" layoutY="114.0" prefHeight="25.0" prefWidth="131.0" promptText="Código" />
+      <TextField fx:id="dataValidade" layoutX="163.0" layoutY="65.0" prefHeight="25.0" prefWidth="131.0" promptText="Data de Validade" />
+      <TextField fx:id="quantidade" layoutX="163.0" layoutY="114.0" prefHeight="25.0" prefWidth="131.0" promptText="Quantidade" />
+      <TextField fx:id="preco" layoutX="306.0" layoutY="65.0" prefHeight="25.0" prefWidth="131.0" promptText="Preço Atual" />
+      <TextField fx:id="secao" layoutX="306.0" layoutY="114.0" prefHeight="25.0" prefWidth="131.0" promptText="Seção" />
+      <TextField fx:id="gondola" layoutX="447.0" layoutY="65.0" prefHeight="25.0" prefWidth="131.0" promptText="Gondola" />
+      <TextArea fx:id="observacoes" layoutX="22.0" layoutY="165.0" prefHeight="68.0" prefWidth="556.0" promptText="Observações" />
+      <ImageView fx:id="foto" fitHeight="185.0" fitWidth="305.0" layoutX="149.0" layoutY="243.0" pickOnBounds="true" preserveRatio="true" />
+      <Button layoutX="38.0" layoutY="244.0" mnemonicParsing="false" onAction="#addFoto" style="-fx-background-color: #FF9800;" text="Add Foto" textFill="WHITE">
+         <font>
+            <Font name="Monospaced Bold" size="16.0" />
+         </font></Button>
+      <TextField fx:id="prateleira" layoutX="447.0" layoutY="114.0" prefHeight="25.0" prefWidth="131.0" promptText="Prateleira" />
+      <Button layoutX="473.0" layoutY="244.0" mnemonicParsing="false" onAction="#salvarInformacoes" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #FF9800;" text="Salvar" textFill="WHITE">
+         <font>
+            <Font name="Monospaced Bold" size="16.0" />
+         </font></Button>
+      <Label layoutX="22.0" layoutY="48.0" text="Nome:" textFill="#ff9800" />
+      <Label layoutX="22.0" layoutY="97.0" text="Código:" textFill="#ff9800" />
+      <Label layoutX="447.0" layoutY="97.0" text="Prateleira:" textFill="#ff9800" />
+      <Label layoutX="163.0" layoutY="48.0" text="Data de Validade:" textFill="#ff9800" />
+      <Label layoutX="447.0" layoutY="48.0" text="Gondola:" textFill="#ff9800" />
+      <Label layoutX="306.0" layoutY="97.0" text="Seção:" textFill="#ff9800" />
+      <Label layoutX="306.0" layoutY="48.0" text="Preço Atual:" textFill="#ff9800" />
+      <Label layoutX="164.0" layoutY="97.0" text="Quantidade:" textFill="#ff9800" />
+      <Button layoutX="18.0" layoutY="18.0" mnemonicParsing="false" onAction="#voltar" style="-fx-background-color: #FF9800;" text="Voltar" textFill="WHITE">
+         <font>
+            <Font name="Monospaced Bold" size="16.0" />
+         </font>
+      </Button>
+      <Label layoutX="22.0" layoutY="148.0" text="Observações:" textFill="#ff9800" />
+      <Button layoutX="3.0" layoutY="321.0" mnemonicParsing="false" onAction="#atualizar" style="-fx-background-color: #FF9800;" text="subir imagem" textFill="WHITE">
+         <font>
+            <Font name="Monospaced Bold" size="16.0" />
+         </font>
+      </Button>
+      <Label fx:id="mensagem" layoutX="163.0" layoutY="25.0" textFill="#ff9800" />
    </children>
 </AnchorPane>

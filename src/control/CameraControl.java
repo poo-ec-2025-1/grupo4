@@ -61,8 +61,7 @@ public class CameraControl implements Initializable{
                 String foto = nameFoto() + ".png";
                 File arquivo = new File(foto);
                 ImageIO.write(ultimaImagemCapturada, "PNG", arquivo);
-                System.out.println("Foto salva: " + arquivo.getAbsolutePath());
-                ConferenteControl.fotoEndereco = arquivo.getAbsolutePath();
+                control.ConferenteControl.fotoEndereco = "file:" + arquivo.getAbsolutePath();
                 // Encerra câmera e janela
                 cameraAtiva = false;
                 webcam.close();
@@ -77,7 +76,7 @@ public class CameraControl implements Initializable{
         LocalDateTime agora = LocalDateTime.now();
         DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd_MM_yyyy-HH_mm_ss");
         String dataHoraString = agora.format(formatador);
-
+        dataHoraString = "_" + dataHoraString;
         return dataHoraString;
     }
 }

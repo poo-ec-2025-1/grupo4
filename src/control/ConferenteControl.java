@@ -1,6 +1,5 @@
 package control;
 
-import java.awt.Label;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.function.UnaryOperator;
@@ -8,6 +7,7 @@ import java.util.regex.Pattern;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
@@ -66,12 +66,12 @@ public class ConferenteControl implements Initializable{
         produto.setStockQuantity(Double.parseDouble(quantidade.getText()));
         produto.setPrice(Double.parseDouble(preco.getText()));
         produto.setExpiration(dataValidade.getText());
-        produto.setSection(secao.getText());
-        produto.setGondola(gondola.getText());
-        produto.setShelf(prateleira.getText());
+        produto.setSectionE(secao.getText());
+        produto.setGondolaE(gondola.getText());
+        produto.setShelfE(prateleira.getText());
         produto.setObservation(observacoes.getText());
         produto.setStoreQuantity(0);
-        produto.setImagem(fotoEndereco);
+        produto.setImagemE(fotoEndereco);
         model.ProductDB database = new model.ProductDB("produtos");
         model.ProductRep.setDatabase(database);
         model.ProductRep.create(produto);

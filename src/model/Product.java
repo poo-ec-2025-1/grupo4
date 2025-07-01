@@ -29,6 +29,15 @@ public class Product
     private String shelf;
     
     @DatabaseField
+    private String sectionE;
+    
+    @DatabaseField
+    private String gondolaE;
+    
+    @DatabaseField
+    private String shelfE;
+    
+    @DatabaseField
     private double store_quantity;
     
     @DatabaseField
@@ -44,7 +53,10 @@ public class Product
     private String observation;
 
     @DatabaseField
-    private String imagem;
+    private String enderecoFotoE;
+
+    @DatabaseField
+    private String enderecoFoto;
     
     public String printExpiration() {
         SimpleDateFormat dateFor = new SimpleDateFormat("dd/MM/yyyy");
@@ -56,7 +68,8 @@ public class Product
     
     public Product(String name, String code,String section, String gondola,
     String shelf, double store_quantity, double stock_quantity, String expiration,
-    double unit_price, String observation){
+    double unit_price, String observation, String sectionE, String gondolaE,
+    String shelfE){
         this.name = name;
         this.code = code;
         this.section = section;
@@ -67,6 +80,9 @@ public class Product
         this.unit_price = unit_price;
         this.setExpiration(expiration);
         this.observation = observation;
+        this.sectionE = sectionE;
+        this.gondolaE = gondolaE;
+        this.shelfE = shelfE;
     }
 
     /**GET Method Propertie name*/
@@ -188,8 +204,50 @@ public class Product
     public void setObservation(String observation){
         this.observation = observation;
     }
+    
+    /**GET Method Propertie sectionE*/
+    public String getSectionE(){
+        return this.sectionE;
+    }
+
+    /**SET Method Propertie sectionE*/
+    public void setSectionE(String sectionE){
+        this.sectionE = sectionE;
+    }
+    
+    /**GET Method Propertie shelfE*/
+    public String getShelfE(){
+        return this.shelfE;
+    }
+
+    /**SET Method Propertie shelfE*/
+    public void setShelfE(String shelfE){
+        this.shelfE = shelfE;
+    }
+    
+    /**GET Method Propertie gondolaE*/
+    public String getGondolaE(){
+        return this.gondolaE;
+    }
+
+    /**SET Method Propertie gondolaE*/
+    public void setGondolaE(String gondolaE){
+        this.gondolaE = gondolaE;
+    }
+
+    public void setImagemE(String imagem){
+        enderecoFotoE = imagem;
+    }
+
+    public String getImageE(){
+        return enderecoFotoE;
+    }
 
     public void setImagem(String imagem){
-        this.imagem = imagem;
+        enderecoFoto = imagem;
+    }
+
+    public String getImage(){
+        return enderecoFoto;
     }
 }

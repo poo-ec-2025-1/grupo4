@@ -1,5 +1,7 @@
 package model;
 
+ 
+
 import com.j256.ormlite.dao.DaoManager;
 import com.j256.ormlite.dao.Dao;
 import java.sql.SQLException;
@@ -7,9 +9,15 @@ import com.j256.ormlite.table.TableUtils;
 
 public class ProductRep
 {
+    private static ProductDB database;
     private static Dao<Product, Integer> dao;
     
+    public ProductRep(ProductDB database) {
+        ProductRep.setDatabase(database);
+    }
+    
     public static void setDatabase(ProductDB database) {
+        ProductRep.database = database;
         try {
             dao = DaoManager.createDao(database.getConnection(), Product.class);
             TableUtils.createTableIfNotExists(database.getConnection(), Product.class);
@@ -56,5 +64,14 @@ public class ProductRep
         System.out.println("Erro ao deletar produto: " + e.getMessage());
     }
     }
+    
+    public static Product buscarPorCodigo(String code) throws SQLException {
+        dao.clearObjectCache();
+        return dao.queryBuilder()
+            .where()
+            .eq("code", code)
+            .queryForFirst();
+    }
+
     
 }

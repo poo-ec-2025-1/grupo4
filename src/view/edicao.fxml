@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="710.0" style="-fx-background-color: #363636;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.EdicaoController">
+   <children>
+      <TextField fx:id="nome" layoutX="22.0" layoutY="73.0" prefHeight="25.0" prefWidth="178.0" promptText="Nome" />
+      <TextField fx:id="codigo" layoutX="266.0" layoutY="73.0" prefHeight="25.0" prefWidth="178.0" promptText="Código" />
+      <TextField fx:id="dataValidade" layoutX="503.0" layoutY="73.0" prefHeight="25.0" prefWidth="178.0" promptText="Data de Validade" />
+      <TextField fx:id="quantidade" layoutX="266.0" layoutY="125.0" prefHeight="25.0" prefWidth="178.0" promptText="Qt. para passar para a loja" />
+      <TextField fx:id="preco" layoutX="22.0" layoutY="125.0" prefHeight="25.0" prefWidth="178.0" promptText="Preço Atual" />
+      <TextArea fx:id="observacoes" layoutX="22.0" layoutY="338.0" prefHeight="56.0" prefWidth="660.0" promptText="Observações" />
+      <Button layoutX="22.0" layoutY="414.0" mnemonicParsing="false" onAction="#salvar" prefHeight="40.0" prefWidth="83.0" style="-fx-background-color: #1e90ff;" text="Salvar" textFill="WHITE">
+         <font>
+            <Font name="Monospaced Bold" size="16.0" />
+         </font></Button>
+      <Label layoutX="188.0" layoutY="22.0" text="Edição ou Reposição de Produtos" textFill="DODGERBLUE">
+         <font>
+            <Font name="Monospaced Bold" size="18.0" />
+         </font></Label>
+      <Button layoutX="117.0" layoutY="414.0" mnemonicParsing="false" onAction="#deletar" prefHeight="40.0" prefWidth="91.0" style="-fx-background-color: #1e90ff;" text="Deletar" textFill="WHITE">
+         <font>
+            <Font name="Monospaced Bold" size="16.0" />
+         </font></Button>
+      <Button layoutX="217.0" layoutY="414.0" mnemonicParsing="false" onAction="#voltarTelaAnterior" prefHeight="40.0" prefWidth="83.0" style="-fx-background-color: #1e90ff;" text="Voltar" textFill="WHITE">
+         <font>
+            <Font name="Monospaced Bold" size="16.0" />
+         </font></Button>
+      <Label fx:id="label" layoutX="360.0" layoutY="313.0" />
+      <TextField fx:id="secaoE" layoutX="22.0" layoutY="289.0" prefHeight="25.0" prefWidth="178.0" promptText="Seção Estoque" />
+      <TextField fx:id="gondolaE" layoutX="266.0" layoutY="289.0" prefHeight="25.0" prefWidth="178.0" promptText="Gôndola Estoque" />
+      <TextField fx:id="prateleiraE" layoutX="503.0" layoutY="289.0" prefHeight="25.0" prefWidth="178.0" promptText="Prateleira Estoque" />
+      <TextField fx:id="quantidadeE" layoutX="503.0" layoutY="125.0" prefHeight="25.0" prefWidth="178.0" promptText="Qt. para passar para o estoque" />
+      <Label fx:id="storeQuantity" layoutX="281.0" layoutY="235.0" />
+      <Label fx:id="stockQuantity" layoutX="531.0" layoutY="235.0" />
+      <ImageView fitHeight="165.0" fitWidth="285.0" layoutX="344.0" layoutY="401.0" pickOnBounds="true" preserveRatio="true" />
+      <Label layoutX="22.0" layoutY="57.0" text="Nome:" textFill="DODGERBLUE" />
+      <Label layoutX="266.0" layoutY="57.0" text="Código:" textFill="DODGERBLUE" />
+      <Label layoutX="503.0" layoutY="57.0" text="Data de Validade:" textFill="DODGERBLUE" />
+      <Label layoutX="22.0" layoutY="108.0" text="Preço Atual:" textFill="DODGERBLUE" />
+      <Label layoutX="266.0" layoutY="108.0" text="Qt. para loja:" textFill="DODGERBLUE" />
+      <Label layoutX="503.0" layoutY="108.0" text="Qt. para estoque:" textFill="DODGERBLUE" />
+      <Label layoutX="336.0" layoutY="173.0" text="Loja" textFill="DODGERBLUE">
+         <font>
+            <Font name="Monospaced Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="22.0" layoutY="193.0" text="Endereço da loja:" textFill="DODGERBLUE" />
+      <Label layoutX="321.0" layoutY="252.0" text="Estoque" textFill="DODGERBLUE">
+         <font>
+            <Font name="Monospaced Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="22.0" layoutY="272.0" text="Seção:" textFill="DODGERBLUE" />
+      <Label layoutX="269.0" layoutY="272.0" text="Gôndola:" textFill="DODGERBLUE" />
+      <Label layoutX="505.0" layoutY="272.0" text="Prateleira:" textFill="DODGERBLUE" />
+      <Label layoutX="22.0" layoutY="322.0" text="Observações:" textFill="DODGERBLUE" />
+      <TextField fx:id="enderecoL" layoutX="22.0" layoutY="210.0" prefHeight="25.0" prefWidth="660.0" promptText="Endereço da loja:" />
+   </children>
+</AnchorPane>
