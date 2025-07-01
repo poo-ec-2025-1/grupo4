@@ -9,13 +9,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #363636;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.LoginController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #363636;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.CriacaoController">
     <children>
         <TextField fx:id="userField" layoutX="226.0" layoutY="158.0" AnchorPane.leftAnchor="226.0" AnchorPane.topAnchor="158.0" />
         
-        <PasswordField fx:id="passwordField" layoutX="226.0" layoutY="220.0" AnchorPane.leftAnchor="226.0" AnchorPane.topAnchor="220.0" />
+        <PasswordField fx:id="passwordField" layoutX="226.0" layoutY="219.0" AnchorPane.leftAnchor="226.0" AnchorPane.topAnchor="219.0" />
 
-    <Label layoutX="183.0" layoutY="106.0" text="TOQUE ESTOQUE" textFill="WHITE">
+    <Label layoutX="156.0" layoutY="109.0" text="Criação de Conta" textFill="WHITE">
         <font>
             <Font name="Monospaced Bold" size="30.0" />
         </font>
@@ -24,7 +24,7 @@
     <Label layoutX="174.0" layoutY="162.0" text="Usuário:" textFill="WHITE" />
     <Label layoutX="182.0" layoutY="224.0" text="Senha:" textFill="WHITE" />
 
-    <Button fx:id="criarContaButton" layoutX="182.0" layoutY="271.0" mnemonicParsing="false" onAction="#mudarTela" style="-fx-background-color: #32CD32;" text="Criar Conta" textFill="WHITE">
+    <Button fx:id="criarContaButton" layoutX="285.0" layoutY="328.0" mnemonicParsing="false" onAction="#criaConta" style="-fx-background-color: #32CD32;" text="Criar Conta" textFill="WHITE">
         <font>
             <Font name="Monospaced Bold" size="16.0" />
         </font>
@@ -40,10 +40,13 @@
             <Image url="@../../Downloads/LOGO%20TE%20-%20SEM%20FUNDO.png" />
          </image>
       </ImageView>
-      <Button fx:id="entrarButton1" layoutX="333.0" layoutY="271.0" mnemonicParsing="false" onAction="#fazerLogin" style="-fx-background-color: #32CD32;" text="Entrar" textFill="WHITE">
+      <Button fx:id="voltarButton" layoutX="182.0" layoutY="328.0" mnemonicParsing="false" onAction="#voltarTelaAnterior" style="-fx-background-color: #32CD32;" text="Voltar" textFill="WHITE">
          <font>
             <Font name="Monospaced Bold" size="16.0" />
          </font>
       </Button>
+      <TextField fx:id="positionField" layoutX="226.0" layoutY="279.0" />
+      <Label layoutX="182.0" layoutY="284.0" text="Cargo:" textFill="WHITE" />
+      <Label fx:id="result" layoutX="39.0" layoutY="365.0" textFill="WHITE" />
 </children>
 </AnchorPane>

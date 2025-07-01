@@ -51,12 +51,12 @@ public class User
     } 
 
     /**GET Method Propertie position*/
-    public String getTipo(){
+    public String getCargo(){
         return this.position;
     }
 
     /**SET Method Propertie position*/
-    public void setTipo(String position){
+    public void setCargo(String position){
         this.position = position;
     } 
 

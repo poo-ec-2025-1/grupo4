@@ -62,5 +62,8 @@
       <Label layoutX="505.0" layoutY="272.0" text="Prateleira:" textFill="DODGERBLUE" />
       <Label layoutX="22.0" layoutY="322.0" text="Observações:" textFill="DODGERBLUE" />
       <TextField fx:id="enderecoL" layoutX="22.0" layoutY="210.0" prefHeight="25.0" prefWidth="660.0" promptText="Endereço da loja:" />
+      <Label fx:id="storeQuantity" layoutX="22.0" layoutY="484.0" textFill="DODGERBLUE" />
+      <Label fx:id="stockQuantity" layoutX="22.0" layoutY="519.0" textFill="DODGERBLUE" />
+      <Label fx:id="label" layoutX="22.0" layoutY="545.0" textFill="DODGERBLUE" />
    </children>
 </AnchorPane>

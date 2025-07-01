@@ -16,6 +16,7 @@
          <Font name="Monospaced Bold" size="45.0" />
       </font>
    </Label>
+   <Label fx:id="result" textFill="WHITE" />
 
     <Button fx:id="caixaButton" maxWidth="Infinity" onAction="#abrirCaixa" prefHeight="80.0" style="-fx-background-color: #32CD32; -fx-text-fill: white; -fx-background-radius: 10;" text="CAIXA">
         <font>
