@@ -83,8 +83,8 @@ public class EdicaoController{
     @FXML
     public void salvar(){
     try {
-        boolean resultado1;
-        boolean resultado2;
+        boolean resultado1 = false;
+        boolean resultado2 = false;
 
         String texto = enderecoL.getText();
 
@@ -141,31 +141,26 @@ public class EdicaoController{
             }
         }
 
-        if (quantidade.getText().isEmpty()) {
-            resultado1 = RepositorioModel.atualizaLoja(codigo.getText(), 0);
-        } else {
+        if (!quantidade.getText().isEmpty()) {
             resultado1 = RepositorioModel.atualizaLoja(codigo.getText(), Double.parseDouble(quantidade.getText()));
         }
 
-        if (quantidadeE.getText().isEmpty()) {
-            resultado2 = RepositorioModel.atualizaEstoque(codigo.getText(), 0);
-        } else {
+        if (!quantidadeE.getText().isEmpty()) {
             resultado2 = RepositorioModel.atualizaEstoque(codigo.getText(), Double.parseDouble(quantidadeE.getText()));
         }
 
         if (resultado1 || resultado2) {
             Product produtoAtualizado = ProductRep.buscarPorCodigo(codigo.getText());
-
             if (produtoAtualizado != null) {
                 storeQuantity.setText("Qt. Loja: " + String.format("%.2f", produtoAtualizado.getStoreQuantity()));
                 stockQuantity.setText("Qt. Estoque: " + String.format("%.2f", produtoAtualizado.getStockQuantity()));
-
                 label.setText("Produto atualizado com sucesso!");
+                RepositorioController.produtoSelecionado = produtoAtualizado;
             } else {
                 label.setText("Erro: Produto não encontrado após atualização.");
             }
         } else {
-            label.setText("Código ou quantidade inválida!");
+            label.setText("Nenhuma movimentação realizada.");
         }
     } catch (Exception e) {
         e.printStackTrace();
