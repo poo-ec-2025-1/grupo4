@@ -1,5 +1,8 @@
 package control;
 
+import java.util.function.UnaryOperator;
+import java.util.regex.Pattern;
+import javafx.scene.control.TextFormatter;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextArea;
@@ -28,11 +31,7 @@ public class EdicaoController{
     @FXML
     private TextField preco;
     @FXML
-    private TextField secao;
-    @FXML
-    private TextField gondola;
-    @FXML
-    private TextField prateleira;
+    private TextField enderecoL;
     @FXML
     private TextField secaoE;
     @FXML
@@ -54,11 +53,11 @@ public class EdicaoController{
     public void initialize() {
     Product produto = RepositorioController.produtoSelecionado;
     if (produto != null) {
+        
         nome.setText(produto.getName());
         codigo.setText(produto.getCode());
-        secao.setText(produto.getSection());
-        gondola.setText(produto.getGondola());
-        prateleira.setText(produto.getShelf());
+        enderecoL.setText(produto.getSection() + "/" + produto.getGondola() 
+        + "/" + produto.getShelf());
         secaoE.setText(produto.getSectionE());
         gondolaE.setText(produto.getGondolaE());
         prateleiraE.setText(produto.getShelfE());
@@ -69,6 +68,7 @@ public class EdicaoController{
         stockQuantity.setText("Qt. Estoque: " + String.format("%.2f" , produto.getStockQuantity()));
         RepositorioModel.setDatabase(database);
         ProductRep.setDatabase(database);
+        
     }
     else{
         Alert alert = new Alert(AlertType.INFORMATION);
@@ -77,13 +77,69 @@ public class EdicaoController{
         alert.setContentText("Produto não carregado!");
         alert.showAndWait();
     }
+    
 }
     
     @FXML
-public void salvar(){
+    public void salvar(){
     try {
         boolean resultado1;
         boolean resultado2;
+
+        String texto = enderecoL.getText();
+
+        Pattern patternCompleto = Pattern.compile("^[A-Za-z]/[A-Za-z]\\d{1,2}/[A-Za-z]\\d{1,3}$");
+
+    if (!patternCompleto.matcher(texto).matches()) {
+        Alert alert = new Alert(AlertType.ERROR);
+        alert.setTitle("Erro de validação");
+        alert.setHeaderText(null);
+        alert.setContentText("Endereço inválido! Use o padrão A/A1/A11, de 1 a 2 números depois da primeira barra e \nde 1 até 3 números depois da segunda barra.");
+        alert.showAndWait();
+        return; 
+        } else {
+            String[] partes = separaString(enderecoL.getText());
+            Product produto = RepositorioController.produtoSelecionado;
+
+            if (produto != null) {
+                produto.setName(nome.getText());
+                produto.setCode(codigo.getText());
+                produto.setSectionE(secaoE.getText());
+                produto.setGondolaE(gondolaE.getText());
+                produto.setShelfE(prateleiraE.getText());
+                produto.setExpiration(dataValidade.getText());
+                produto.setObservation(observacoes.getText());
+
+                if (!preco.getText().isEmpty()) {
+                    String precoLimpo = preco.getText().replace(",", ".");
+                    produto.setPrice(Double.parseDouble(precoLimpo));
+                } else {
+                     produto.setPrice(0.0);
+                }
+
+
+                produto.setSection(partes[0]);
+
+                if (partes.length > 1) {
+                    produto.setGondola(partes[1]);
+                }
+
+                if (partes.length > 2) {
+                    produto.setShelf(partes[2]);
+                }
+
+                ProductRep.update(produto);
+
+                label.setText("Produto atualizado com sucesso!");
+            } else {
+                Alert alert = new Alert(AlertType.ERROR);
+                alert.setTitle("Erro");
+                alert.setHeaderText("Erro ao atualizar o produto");
+                alert.setContentText("Produto selecionado não encontrado.");
+                alert.showAndWait();
+                return;
+            }
+        }
 
         if (quantidade.getText().isEmpty()) {
             resultado1 = RepositorioModel.atualizaLoja(codigo.getText(), 0);
@@ -115,7 +171,8 @@ public void salvar(){
         e.printStackTrace();
         label.setText("Erro ao atualizar produto: " + e.getMessage());
     }
-}
+    }
+
 
 
     
@@ -134,6 +191,11 @@ public void salvar(){
     @FXML
     public void voltarTelaAnterior() {
         ScreenControl.changeScene("/view/repositorio.fxml");
+    }
+    
+    public String[] separaString(String palavra){
+        String[] partes = palavra.split("/");
+        return partes;
     }
 }
 

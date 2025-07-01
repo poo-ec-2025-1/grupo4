@@ -1,17 +1,17 @@
 #BlueJ package file
-dependency1.from=LoginController
+dependency1.from=CaixaControl
 dependency1.to=ScreenControl
 dependency1.type=UsesDependency
-dependency2.from=ControlPrincipal
+dependency2.from=LoginController
 dependency2.to=ScreenControl
 dependency2.type=UsesDependency
 dependency3.from=HomeControl
 dependency3.to=ScreenControl
 dependency3.type=UsesDependency
-dependency4.from=RepositorioController
+dependency4.from=ControlPrincipal
 dependency4.to=ScreenControl
 dependency4.type=UsesDependency
-dependency5.from=CaixaControl
+dependency5.from=RepositorioController
 dependency5.to=ScreenControl
 dependency5.type=UsesDependency
 dependency6.from=EdicaoController

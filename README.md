@@ -1,16 +1,135 @@
-# grupo4
-Projeto do Grupo 4
-Seção 1: Nosso app tem como objetivo melhorar a dinâmica de organização de estoques e otimizar a comunicação da equipe de logística com relação a estocagem e eficiência de tempo.
-O funcionamento do nosso app é simples, terá um layoult inicial em que o usuário insira seu login e senha, criados pelo Adm, responsável pela criação e gerenciamento dos logins. Assim que o usuário entre na página seguinte, terá opções 4 opções para escolher: 1- layolt de Loja; 2- Configuração de Estoque; 3- Notificações de loja; 4- Chat de conversa.
-Assim poderá conferir informações geradas por outros usuários e gerar as suas proprias informações a respeito de produtos presentes no estoque e nas prateleiras. 
-Temos como principal público-alvo o Comércios de varejo. 
-O principal problema hoje na questão dos estoques é a ineficiência na logística de comércios de varejo, uma vez que é extremamente complexo a organização de estoque unida à entrada e à saída de produtos do estabelecimento pela falta de interações entre funcionários.  
-Nossa motivação para o densenvolvimento desse sistema está diretamente ligada á questão prática, já que o problema foi vivenciado por alguns integrantes do grupo, que sofreram com a ausência de uma plataforma/entidade auxiliadora.
+#  Projeto do Grupo 4 – Sistema de Organização de Estoques
 
-Seção 2: Nosso objetivo geral com esse app é auxiliar os estabelecimentos com a questão da organização de seus produtos, funcionários, tempo e financeiro. 
+##  Membros do Grupo
 
-Seção 3: A organição das tarefas do grupo foi decidida desta maneira:
-João Pedro Rodrigues de Almeida(JoaoAlmeida2005): Documentação do Projeto;
-José Augusto Gomes de Mendonça(JoseAugustoGM): Model;
-Vitor Hugo de Oliveira Moreira(Toorugo): View;
-Yan Freire Caser(yancaser) : Controller;
+- **Vitor Hugo de Oliveira Moreira** – *Interface (View)* – `@toorugo`
+- **João Pedro Rodrigues de Almeida** – *Documentação* – `@JoaoAlmeida2005`
+- **José Augusto Gomes de Mendonça** – *Modelagem (Model)* – `@JoseAugustoGM`
+- **Yan Freire Caser** – *Controlador (Controller)* – `@yancaser`
+
+---
+
+##  Seção 1: Visão Geral do Projeto
+
+Nosso aplicativo tem como objetivo **melhorar a organização do estoque** e otimizar a **comunicação entre os funcionários**, com foco no setor de logística de comércios varejistas.
+
+A ideia é permitir que os colaboradores registrem e acessem facilmente informações sobre os produtos nas prateleiras e no estoque, favorecendo o fluxo de informações e reduzindo erros.
+
+### Funcionalidades principais:
+
+- **Login de usuário**
+  - Cada usuário acessa com login e senha.
+  - Não há distinção entre administrador e funcionário.
+  
+- **Menu com 4 opções após login:**
+  1. *Layout da Loja* – Visualização e mapeamento de organização física.
+  2. *Configuração de Estoque* – Cadastro, consulta e atualização de produtos.
+  3. *Notificações da Loja* – Alertas sobre prazos, vencimentos e movimentações.
+  4. *Bate-papo Interno* – Comunicação simples entre os colaboradores.
+
+### Problemas identificados:
+
+- Baixa eficiência logística no comércio de varejo.
+- Falta de interação e comunicação entre funcionários.
+- Dificuldade na entrada, saída e localização de produtos.
+- Ausência de uma plataforma centralizada e acessível para controle do estoque.
+
+### Motivação:
+
+A motivação surgiu a partir da vivência real de membros do grupo que trabalharam em locais com esse tipo de dificuldade. Notou-se a ausência de uma solução prática e digital que organizasse essas informações de forma compartilhada, clara e funcional.
+
+---
+
+##  Seção 2: Objetivo Geral
+
+Criar um aplicativo que auxilie estabelecimentos comerciais no gerenciamento de produtos, organização da equipe, controle de tempo e melhoria da comunicação interna.
+
+---
+
+##  Seção 3: Organização das Tarefas
+
+| Membro                          | Responsabilidade         |
+|---------------------------------|--------------------------|
+| João Pedro Rodrigues de Almeida | Documentação             |
+| José Augusto Gomes de Mendonça  | Modelagem de dados       |
+| Vitor Hugo de Oliveira Moreira  | Interface gráfica (View) |
+| Yan Freire Caser                | Controlador (Controller) |
+
+---
+
+## Seção 4: Modelagem Inicial:
+
+ ## Diagrama de Sequência:
+
+![Layout de loja](https://github.com/user-attachments/assets/6d5d3907-30a2-439b-9600-7ad341b76c11)
+---
+ ## Diagrama de Casos:
+![image](https://github.com/user-attachments/assets/65c1f76a-8e8d-42ff-ae47-e1406323af91)
+---
+ ## Diagrama de casos de uso:
+
+![image](https://github.com/user-attachments/assets/529e116d-3d90-4aa3-8505-17a9da10f902)
+---
+## Casos de Uso:
+
+### 1.  Cadastrar Produto
+
+| Campo            | Descrição                                                                 |
+|------------------|---------------------------------------------------------------------------|
+| **Ator Principal**      |  Usuário autenticado.             |
+| **Objetivo**     | Adicionar um novo produto ao sistema com todas as informações necessárias.|
+| **Pré-condição** | Estar logado no sistema.                                                  |
+| **Fluxo Principal** | 1. Acessa tela de cadastro. <br> 2. Preenche dados do produto (nome, validade, categoria, localização, quantidade, etc). <br> 3. Clica em "Salvar". <br> 4. Sistema valida e grava os dados. <br> 5. Confirmação é exibida. |
+| **Fluxo Alternativo** | Campos obrigatórios ausentes → erro exibido e cadastro não finalizado. |
+| **Pós-condição** | Produto salvo no sistema e visível na listagem de estoque.                |
+
+---
+
+### 2.  Consultar Estoque
+
+| Campo            | Descrição                                                                 |
+|------------------|---------------------------------------------------------------------------|
+| **Ator Principal**      | Usuário autenticado.                                             |
+| **Objetivo**     | Ver os produtos cadastrados e seus dados.                                 |
+| **Pré-condição** | Estar logado no sistema.                                                  |
+| **Fluxo Principal** | 1. Acessa tela de consulta. <br> 2. Visualiza lista de produtos. <br> 3. Pode usar filtros ou pesquisar por nome/código. |
+| **Fluxo Alternativo** | Produto não encontrado → mensagem de "nenhum resultado".              |
+| **Pós-condição** | Produtos exibidos com seus dados atualizados.                            |
+
+---
+
+### 3.  Atualizar Informações de Produto
+
+| Campo            | Descrição                                                                 |
+|------------------|---------------------------------------------------------------------------|
+| **Ator Principal**      | Usuário autenticado.                                             |
+| **Objetivo**     | Corrigir ou alterar informações de um produto.                            |
+| **Pré-condição** | Produto já existente e login realizado.                                   |
+| **Fluxo Principal** | 1. Acessa tela de consulta. <br> 2. Seleciona produto. <br> 3. Altera campos desejados. <br> 4. Salva alterações. <br> 5. Sistema confirma atualização. |
+| **Pós-condição** | Informações do produto atualizadas com sucesso.                          |
+
+---
+
+### 4.  Vender Produto
+
+| Campo            | Descrição                                                                 |
+|------------------|---------------------------------------------------------------------------|
+| **Ator Principal**      |  Usuário autenticado.                                             |
+| **Objetivo**     | Reduzir quantidade de um produto ao ser retirado do estoque.              |
+| **Pré-condição** | Produto deve existir e ter quantidade disponível.                         |
+| **Fluxo Principal** | 1. Localiza o produto. <br> 2. Informa a quantidade a ser retirada. <br> 3. Clica em "Confirmar Baixa". <br> 4. Sistema atualiza o estoque. |
+| **Fluxo Alternativo** | Quantidade solicitada maior do que disponível → erro exibido.         |
+| **Pós-condição** | Quantidade do produto atualizada na loja.                             |
+
+---
+
+### 5.  Realizar Login
+
+| Campo            | Descrição                                                                 |
+|------------------|---------------------------------------------------------------------------|
+| **Ator Principal**      |  Usuário autenticado.                |
+| **Objetivo**     | Acessar o sistema de acordo com seu perfil.                               |
+| **Pré-condição** | Ter uma conta cadastrada.                                                 |
+| **Fluxo Principal** | 1. Informa login e senha. <br> 2. Sistema verifica credenciais. <br> 3. Usuário é redirecionado para sua tela inicial. |
+| **Fluxo Alternativo** | Dados inválidos → mensagem de erro.                                  |
+| **Pós-condição** | Acesso permitido ao sistema com base no perfil.                          |
