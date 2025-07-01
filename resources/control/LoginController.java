@@ -2,6 +2,7 @@ package control;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Label;
 import javafx.scene.control.Button;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Alert;
@@ -20,14 +21,13 @@ public class LoginController {
     private static model.UserRep userRep = 
         new model.UserRep(database);
         
-    private boolean logado;
+    public static model.User logado;
         
-    
+    @FXML
     public void fazerLogin(){
         try{
             logado = userRep.login(userField.getText(), passwordField.getText());
-            System.out.println("Botão clicado.");
-            if(logado){
+            if(logado != null){
                 ScreenControl.changeScene("/view/home.fxml");
             } else{
                 Alert alerta = new Alert(AlertType.ERROR);
@@ -40,8 +40,14 @@ public class LoginController {
                 }
         }
         catch(Exception e){
-            new Alert(AlertType.ERROR, "Erro ao salvar: "+e.getMessage()).show();
+            new Alert(AlertType.ERROR, "Erro ao fazer login: "+e.getMessage()).show();
         }
     }
+    
+    @FXML
+    void mudarTela(){
+        ScreenControl.changeScene("/view/criacao.fxml");
+    }
+
     
 }                                      

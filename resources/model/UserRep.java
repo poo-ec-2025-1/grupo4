@@ -66,7 +66,7 @@ public class UserRep
     }
     }
     
-    public boolean login(String username, String password) {
+    public User login(String username, String password) {
         User user;
     
         try {
@@ -78,10 +78,10 @@ public class UserRep
                      .queryForFirst(); 
         } catch (SQLException e) {
         System.out.println("Erro ao buscar por usuario e senha: " + e.getMessage());
-        return false;
+        return null;
         }
-        return user != null;
+        return user;
     }
     
-
+    
 }
