@@ -52,6 +52,7 @@
 
   Com relação àquilo que eu fiz no controller, eu ajudei na implementação das seguintes classes:
   * LogincController
+  * CriacaoController
   * RepositorioController
   * EdicaoController
 
@@ -63,19 +64,26 @@
 
   [Link para o commit: Adicionando arquivos para o Repositório.](https://github.com/poo-ec-2025-1/grupo4/commit/9ca52b2b5f3c422090a83041e6a89f1a1fac554c)
 
-  Neste caso, o LoginController é o controlador da tela de login, o RepositorioController é o controlador do Repositório onde um usuário acessa os produtos através de uma pesquisa e o EdicaoController é o controlador da edição de produtos que ocorre quando um usuário seleciona um produto encontrado na pesquisa do repositório.
+  Finalmente, as alterações que eu fiz no CriacaoController estão no seguinte commit:
+
+  [Link para o commit: Adicionando a funcionalidade de criação de contas.](https://github.com/poo-ec-2025-1/grupo4/commit/1e34d6c82328ca7441c857982ee31e10b6d6b90d)
+
+  Neste caso, o LoginController é o controlador da tela de login, o RepositorioController é o controlador do Repositório onde um usuário acessa os produtos através de uma pesquisa, o EdicaoController é o controlador da edição de produtos que ocorre quando um usuário seleciona um produto encontrado na pesquisa do repositório e o CriacaoController é o controller para a tela de criação de usuários.
 
   Com relação àquilo que eu fiz na view, eu participei ajudando a fazer um rascunho das seguintes telas:
   * edicao.fxml
   * repositorio.fxml
+  * criacao.fxml
 
-  Os commits que mostram as alterações que eu fiz nas edicao.fxml e repositorio.fxml são os seguintes:
+  Os commits que mostram as alterações que eu fiz nas edicao.fxml, repositorio.fxml e criacao.fxml são os seguintes:
 
   [Link para o commit: Adicionando modificações.](https://github.com/poo-ec-2025-1/grupo4/commit/dc51d8f6b40d6d429f48b8a818a42379bd426fbb)
 
   [Link para o commit: Adicionando arquivos para o Repositório.](https://github.com/poo-ec-2025-1/grupo4/commit/9ca52b2b5f3c422090a83041e6a89f1a1fac554c)
 
   [Link para o commit: Ajustando tela para sincronizar com o código.](https://github.com/poo-ec-2025-1/grupo4/commit/e272ac585d7ed708775759908dc38e27c89581aa)
+
+  [Link para o commit: Adicionando a funcionalidade de criação de contas.](https://github.com/poo-ec-2025-1/grupo4/commit/1e34d6c82328ca7441c857982ee31e10b6d6b90d)
 
   Essas alterações incluem apenas um rascunho da criação ou configuração, outras modificações de layout foram feitas pelo integrante do grupo responsável pelas telas.
 
