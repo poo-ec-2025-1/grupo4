@@ -61,15 +61,18 @@ Criar um aplicativo que auxilie estabelecimentos comerciais no gerenciamento de 
 
  ## Diagrama de Sequência:
 
-![Layout de loja](https://github.com/user-attachments/assets/6d5d3907-30a2-439b-9600-7ad341b76c11)
+![image](https://github.com/user-attachments/assets/fdb345fa-be57-429e-9b8a-cbdb5c5f292d)
 ---
+
  ## Diagrama de Casos:
 ![image](https://github.com/user-attachments/assets/65c1f76a-8e8d-42ff-ae47-e1406323af91)
 ---
+
  ## Diagrama de casos de uso:
 
 ![image](https://github.com/user-attachments/assets/529e116d-3d90-4aa3-8505-17a9da10f902)
 ---
+
 ## Casos de Uso:
 
 ### 1.  Cadastrar Produto
