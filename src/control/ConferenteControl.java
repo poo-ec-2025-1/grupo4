@@ -60,21 +60,11 @@ public class ConferenteControl implements Initializable{
 
     @FXML
     public void salvarInformacoes(){
-        model.Product produto = new model.Product();
-        produto.setName(nome.getText());
-        produto.setCode(codigo.getText());
-        produto.setStockQuantity(Double.parseDouble(quantidade.getText()));
-        produto.setPrice(Double.parseDouble(preco.getText()));
-        produto.setExpiration(dataValidade.getText());
-        produto.setSectionE(secao.getText());
-        produto.setGondolaE(gondola.getText());
-        produto.setShelfE(prateleira.getText());
-        produto.setObservation(observacoes.getText());
-        produto.setStoreQuantity(0);
-        produto.setImagemE(fotoEndereco);
+        model.Product produto = defineProduto();
         model.ProductDB database = new model.ProductDB("produtos");
         model.ProductRep.setDatabase(database);
         model.ProductRep.create(produto);
+        limparTela();
         mensagem.setText("Dados Salvos");
     }
     @FXML
@@ -92,6 +82,35 @@ public class ConferenteControl implements Initializable{
     @FXML
     public void voltar(){
         ScreenControl.changeScene("/view/home.fxml", ScreenControl.stage1);
+    }
+
+    public void limparTela(){
+        nome.clear();
+        codigo.clear();
+        quantidade.clear();
+        preco.clear();
+        dataValidade.clear();
+        secao.clear();
+        gondola.clear();
+        prateleira.clear();
+        observacoes.clear();
+        foto.setImage(null);
+    }
+
+    public model.Product defineProduto(){
+        model.Product produto = new model.Product();
+        produto.setName(nome.getText());
+        produto.setCode(codigo.getText());
+        produto.setStockQuantity(Double.parseDouble(quantidade.getText()));
+        produto.setPrice(Double.parseDouble(preco.getText()));
+        produto.setExpiration(dataValidade.getText());
+        produto.setSectionE(secao.getText());
+        produto.setGondolaE(gondola.getText());
+        produto.setShelfE(prateleira.getText());
+        produto.setObservation(observacoes.getText());
+        produto.setStoreQuantity(0);
+        produto.setImagemE(fotoEndereco);
+        return produto;
     }
 
 }

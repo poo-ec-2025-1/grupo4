@@ -4,12 +4,11 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #363636;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.LoginController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #363636;" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.LoginController">
     <children>
         <TextField fx:id="userField" layoutX="226.0" layoutY="158.0" AnchorPane.leftAnchor="226.0" AnchorPane.topAnchor="158.0" />
         
@@ -24,7 +23,7 @@
     <Label layoutX="174.0" layoutY="162.0" text="Usuário:" textFill="WHITE" />
     <Label layoutX="182.0" layoutY="224.0" text="Senha:" textFill="WHITE" />
 
-    <Button fx:id="entrarButton" layoutX="260.0" layoutY="271.0" mnemonicParsing="false" onAction="#fazerLogin" style="-fx-background-color: #32CD32;" text="Entrar" textFill="WHITE">
+    <Button fx:id="criarContaButton" layoutX="182.0" layoutY="271.0" mnemonicParsing="false" onAction="#mudarTela" style="-fx-background-color: #32CD32;" text="Criar Conta" textFill="WHITE">
         <font>
             <Font name="Monospaced Bold" size="16.0" />
         </font>
@@ -35,10 +34,12 @@
             <Font size="20.0" />
         </font>
     </Label>
-      <ImageView fitHeight="113.0" fitWidth="121.0" layoutX="240.0">
-         <image>
-            <Image url="@../../Downloads/LOGO%20TE%20-%20SEM%20FUNDO.png" />
-         </image>
+      <ImageView fx:id="marca" fitHeight="113.0" fitWidth="121.0" layoutX="240.0">
       </ImageView>
+      <Button fx:id="entrarButton1" layoutX="333.0" layoutY="271.0" mnemonicParsing="false" onAction="#fazerLogin" style="-fx-background-color: #32CD32;" text="Entrar" textFill="WHITE">
+         <font>
+            <Font name="Monospaced Bold" size="16.0" />
+         </font>
+      </Button>
 </children>
 </AnchorPane>

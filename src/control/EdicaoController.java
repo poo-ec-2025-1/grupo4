@@ -4,6 +4,8 @@ import java.util.regex.Pattern;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.control.Label;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -42,6 +44,13 @@ public class EdicaoController{
     private Label storeQuantity;
     @FXML
     private Label stockQuantity;
+    @FXML
+    private ImageView imagemEstoque;
+    @FXML
+    private ImageView imagemLoja;
+    
+    String imagemE;
+    String imagemL; 
     
     private ProductDB database = new ProductDB("produtos");
     
@@ -62,6 +71,8 @@ public class EdicaoController{
         observacoes.setText(produto.getObservation());
         storeQuantity.setText("Qt. Loja: " + String.format("%.2f" , produto.getStoreQuantity()));
         stockQuantity.setText("Qt. Estoque: " + String.format("%.2f" , produto.getStockQuantity()));
+        imagemEstoque.setImage(new Image(produto.getImageE()));
+        imagemLoja.setImage(new Image(produto.getImage()));
         RepositorioModel.setDatabase(database);
         ProductRep.setDatabase(database);
         
@@ -105,6 +116,8 @@ public class EdicaoController{
                 produto.setShelfE(prateleiraE.getText());
                 produto.setExpiration(dataValidade.getText());
                 produto.setObservation(observacoes.getText());
+                produto.setImagem(imagemL);
+                produto.setImagemE(imagemE);
 
                 if (!preco.getText().isEmpty()) {
                     String precoLimpo = preco.getText().replace(",", ".");
@@ -192,6 +205,24 @@ public class EdicaoController{
     public String[] separaString(String palavra){
         String[] partes = palavra.split("/");
         return partes;
+    }
+
+    @FXML
+    public void subirL(){
+        imagemL = control.ConferenteControl.fotoEndereco;
+        Image imagem = new Image(imagemL);
+        imagemLoja.setImage(imagem);
+    }
+    @FXML
+    public void subirE(){
+        imagemE = control.ConferenteControl.fotoEndereco;
+        Image imagem = new Image(imagemE);
+        imagemLoja.setImage(imagem);
+    }
+
+    @FXML
+    public void capturarFoto(){
+        ScreenControl.changeScene("/view/camera.fxml", ScreenControl.stage2);
     }
 }
 
