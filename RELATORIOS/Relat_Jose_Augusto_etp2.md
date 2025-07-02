@@ -75,7 +75,7 @@
   * repositorio.fxml
   * criacao.fxml
 
-  Os commits que mostram as alterações que eu fiz nas edicao.fxml, repositorio.fxml e criacao.fxml são os seguintes:
+  Os commits que mostram as alterações que eu fiz nas telas edicao.fxml, repositorio.fxml e criacao.fxml são os seguintes:
 
   [Link para o commit: Adicionando modificações.](https://github.com/poo-ec-2025-1/grupo4/commit/dc51d8f6b40d6d429f48b8a818a42379bd426fbb)
 
@@ -86,6 +86,12 @@
   [Link para o commit: Adicionando a funcionalidade de criação de contas.](https://github.com/poo-ec-2025-1/grupo4/commit/1e34d6c82328ca7441c857982ee31e10b6d6b90d)
 
   Essas alterações incluem apenas um rascunho da criação ou configuração, outras modificações de layout foram feitas pelo integrante do grupo responsável pelas telas.
+
+  Também contribui com alterações importantes para toda a aplicação no seguinte commit:
+
+  [Link para o commit: Código final do projeto.](https://github.com/poo-ec-2025-1/grupo4/commit/8660db8a319711eea8573365354adb0f023af516)
+
+  Neste commit, eu atualizei o meu código com o código do líder do projeto. Logo em seguida, fiz as alterações necessárias e corrigi erros para fazer o programa funcionar. Ao finalizar tudo isso, usando o BlueJ, eu consegui criar o .jar para o projeto.
 
   Como ajudei outras pessoas a resolverem seus problemas?
   - Estou constantemente conversando com o líder do grupo para resolver erros, adicionar funcionalidades e tentar encaminhar o projeto da melhor forma possível.
