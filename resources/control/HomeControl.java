@@ -23,14 +23,14 @@ public class HomeControl {
     
     @FXML
     void abrirCaixa(){
-        ScreenControl.changeScene("/view/caixa.fxml");
+        ScreenControl.changeScene("/view/caixa.fxml", ScreenControl.stage1);
     }
     @FXML
     void abrirRepositorio(){
-        ScreenControl.changeScene("/view/repositorio.fxml");
+        ScreenControl.changeScene("/view/repositorio.fxml", ScreenControl.stage1);
     }
     @FXML
     void abrirConferente(){
-        ScreenControl.changeScene("/view/conferente.fxml");
+        ScreenControl.changeScene("/view/conferente.fxml", ScreenControl.stage1);
     }
 }

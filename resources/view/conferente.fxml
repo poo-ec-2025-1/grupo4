@@ -1,46 +1,102 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="435.0" prefWidth="600.0" style="-fx-background-color: #363636;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.ConferenteControl">
-   <children>
-      <TextField fx:id="nome" layoutX="22.0" layoutY="65.0" prefHeight="25.0" prefWidth="131.0" promptText="Nome" />
-      <TextField fx:id="codigo" layoutX="22.0" layoutY="114.0" prefHeight="25.0" prefWidth="131.0" promptText="Código" />
-      <TextField fx:id="dataValidade" layoutX="163.0" layoutY="65.0" prefHeight="25.0" prefWidth="131.0" promptText="Data de Validade" />
-      <TextField fx:id="quantidade" layoutX="163.0" layoutY="114.0" prefHeight="25.0" prefWidth="131.0" promptText="Quantidade" />
-      <TextField fx:id="preco" layoutX="306.0" layoutY="65.0" prefHeight="25.0" prefWidth="131.0" promptText="Preço Atual" />
-      <TextField fx:id="secao" layoutX="306.0" layoutY="114.0" prefHeight="25.0" prefWidth="131.0" promptText="Seção" />
-      <TextField fx:id="gondola" layoutX="447.0" layoutY="65.0" prefHeight="25.0" prefWidth="131.0" promptText="Gondola" />
-      <TextArea fx:id="observacoes" layoutX="22.0" layoutY="165.0" prefHeight="68.0" prefWidth="556.0" promptText="Observações" />
-      <ImageView fx:id="foto" fitHeight="185.0" fitWidth="305.0" layoutX="149.0" layoutY="243.0" opacity="0.0" pickOnBounds="true" preserveRatio="true" />
-      <Button layoutX="38.0" layoutY="244.0" mnemonicParsing="false" onAction="#addFoto" style="-fx-background-color: #FF9800;" text="Add Foto" textFill="WHITE">
-         <font>
-            <Font name="Monospaced Bold" size="16.0" />
-         </font></Button>
-      <TextField fx:id="prateleira" layoutX="447.0" layoutY="114.0" prefHeight="25.0" prefWidth="131.0" promptText="Prateleira" />
-      <Button layoutX="473.0" layoutY="244.0" mnemonicParsing="false" onAction="#salvarInformacoes" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #FF9800;" text="Salvar" textFill="WHITE">
-         <font>
-            <Font name="Monospaced Bold" size="16.0" />
-         </font></Button>
-      <Label layoutX="22.0" layoutY="48.0" text="Nome:" textFill="#ff9800" />
-      <Label layoutX="22.0" layoutY="97.0" text="Código:" textFill="#ff9800" />
-      <Label layoutX="447.0" layoutY="97.0" text="Prateleira:" textFill="#ff9800" />
-      <Label layoutX="163.0" layoutY="48.0" text="Data de Validade:" textFill="#ff9800" />
-      <Label layoutX="447.0" layoutY="48.0" text="Gondola:" textFill="#ff9800" />
-      <Label layoutX="306.0" layoutY="97.0" text="Seção:" textFill="#ff9800" />
-      <Label layoutX="306.0" layoutY="48.0" text="Preço Atual:" textFill="#ff9800" />
-      <Label layoutX="164.0" layoutY="97.0" text="Quantidade:" textFill="#ff9800" />
-      <Button layoutX="18.0" layoutY="18.0" mnemonicParsing="false" style="-fx-background-color: #FF9800;" text="Voltar" textFill="WHITE">
-         <font>
-            <Font name="Monospaced Bold" size="16.0" />
-         </font>
-      </Button>
-      <Label layoutX="22.0" layoutY="148.0" text="Observações:" textFill="#ff9800" />
-   </children>
-</AnchorPane>
+<ScrollPane fitToWidth="true" style="-fx-background-color: #363636;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.ConferenteControl">
+    <content>
+        <VBox spacing="15" style="-fx-background-color: #363636;">
+            
+            <!-- Corrigido: padding em Insets -->
+            <padding>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+            </padding>
+
+            <HBox alignment="CENTER_LEFT" spacing="15">
+                <Button onAction="#voltar" prefWidth="100" style="-fx-background-color: #FF9800;" text="Voltar" textFill="WHITE">
+                    <font>
+                        <Font name="Monospaced Bold" size="16.0" />
+                    </font>
+                </Button>
+                <Label fx:id="mensagem" prefHeight="21.0" prefWidth="288.0" textFill="#FF9800" />
+            </HBox>
+
+            <GridPane hgap="15" vgap="10">
+                <columnConstraints>
+                    <ColumnConstraints percentWidth="25" />
+                    <ColumnConstraints percentWidth="25" />
+                    <ColumnConstraints percentWidth="25" />
+                    <ColumnConstraints percentWidth="25" />
+                </columnConstraints>
+
+                <rowConstraints>
+                    <RowConstraints minHeight="30.0" />
+                    <RowConstraints minHeight="30.0" />
+               <RowConstraints />
+               <RowConstraints />
+                </rowConstraints>
+
+                <Label text="Nome:" textFill="#FF9800" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                <TextField fx:id="nome" promptText="Nome" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+
+                <Label text="Data de Validade:" textFill="#FF9800" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                <TextField fx:id="dataValidade" promptText="Data de Validade" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                <Label text="Preço Atual:" textFill="#FF9800" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                <TextField fx:id="preco" promptText="Preço Atual" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+
+                <Label text="Gondola:" textFill="#FF9800" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+                <TextField fx:id="gondola" promptText="Gondola" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+
+                <Label text="Código:" textFill="#FF9800" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                <TextField fx:id="codigo" promptText="Código" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+
+                <Label text="Quantidade:" textFill="#FF9800" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <TextField fx:id="quantidade" promptText="Quantidade" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+                <Label text="Seção:" textFill="#FF9800" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                <TextField fx:id="secao" promptText="Seção" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+
+                <Label text="Prateleira:" textFill="#FF9800" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                <TextField fx:id="prateleira" promptText="Prateleira" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+            </GridPane>
+
+            <Label text="Observações:" textFill="#FF9800" />
+            <TextArea fx:id="observacoes" prefHeight="60" promptText="Observações" />
+
+            <HBox alignment="CENTER_LEFT" spacing="20">
+                <ImageView fx:id="foto" fitHeight="185.0" fitWidth="305.0" preserveRatio="true" />
+
+                <VBox spacing="10">
+                    <Button onAction="#addFoto" prefWidth="130" style="-fx-background-color: #FF9800;" text="Add Foto" textFill="WHITE">
+                        <font>
+                            <Font name="Monospaced Bold" size="16.0" />
+                        </font>
+                    </Button>
+                    <Button onAction="#atualizar" prefWidth="130" style="-fx-background-color: #FF9800;" text="subir imagem" textFill="WHITE">
+                        <font>
+                            <Font name="Monospaced Bold" size="16.0" />
+                        </font>
+                    </Button>
+                    <Button onAction="#salvarInformacoes" prefWidth="130" style="-fx-background-color: #FF9800;" text="Salvar" textFill="WHITE">
+                        <font>
+                            <Font name="Monospaced Bold" size="16.0" />
+                        </font>
+                    </Button>
+                </VBox>
+            </HBox>
+            
+        </VBox>
+    </content>
+</ScrollPane>

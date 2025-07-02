@@ -4,18 +4,14 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Button;
-import javafx.scene.control.Alert.AlertType;
 import javafx.collections.FXCollections;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.collections.ObservableList;
-import javafx.scene.control.Alert;
 import java.util.List;
 
 import model.RepositorioModel;
 import model.Product;
 import model.ProductDB;
-import control.ScreenControl;
 
 public class RepositorioController {
     @FXML
@@ -84,7 +80,7 @@ public class RepositorioController {
         Product produtoSelecionado = tabela.getSelectionModel().getSelectedItem();
         RepositorioController.produtoSelecionado = produtoSelecionado;
         if (produtoSelecionado != null) {
-            ScreenControl.changeScene("/view/edicao.fxml");
+            ScreenControl.changeScene("/view/edicao.fxml", ScreenControl.stage1);
         }
     }
 });
@@ -103,9 +99,12 @@ public class RepositorioController {
                 shelfEField.getText());
 
         productList.clear();
+        if (products != null && !products.isEmpty()) {
         productList.addAll(products);
+        }
         tabela.setItems(productList);
         limparCampos();
+
     }
 
     public void limparCampos() {
@@ -120,6 +119,6 @@ public class RepositorioController {
 
     @FXML
     public void voltarTelaAnterior() {
-        ScreenControl.changeScene("/view/home.fxml");
+        ScreenControl.changeScene("/view/home.fxml", ScreenControl.stage1);
     }
 }

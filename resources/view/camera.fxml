@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.StackPane?>
+
+<StackPane alignment="BOTTOM_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: black;;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.CameraControl">
+   <children>
+      <ImageView fx:id="imageView" fitHeight="480.0" fitWidth="640.0" pickOnBounds="true" preserveRatio="true" />
+      <Button mnemonicParsing="false" onAction="#salvarImagemEFechar" prefHeight="47.0" prefWidth="97.0" text="Capturar" />
+      <Button fx:id="btnInverter" layoutX="262.0" layoutY="363.0" mnemonicParsing="false" onAction="#inverterImagem" prefHeight="47.0" prefWidth="164.0" text="Inverter Imagem" StackPane.alignment="BOTTOM_LEFT" />
+   </children>
+</StackPane>

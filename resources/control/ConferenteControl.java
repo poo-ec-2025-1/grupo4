@@ -7,9 +7,13 @@ import java.util.regex.Pattern;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+
 
 public class ConferenteControl implements Initializable{
     
@@ -31,9 +35,13 @@ public class ConferenteControl implements Initializable{
     public TextField prateleira;
     @FXML
     public TextArea observacoes;
+    @FXML
+    public ImageView foto;
+    @FXML
+    private Label mensagem;
 
-    private static model.ProductDB database = new model.ProductDB("produtos");
-    
+    public static String fotoEndereco; 
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         Pattern pattern = Pattern.compile("\\d{0,2}(/\\d{0,2}(/\\d{0,4})?)?");
@@ -46,29 +54,64 @@ public class ConferenteControl implements Initializable{
                 return null; 
             }
         };
-
         TextFormatter<String> textFormatter = new TextFormatter<>(filtro);
         dataValidade.setTextFormatter(textFormatter);
     }
 
     @FXML
     public void salvarInformacoes(){
+        model.Product produto = defineProduto();
+        model.ProductDB database = new model.ProductDB("produtos");
+        model.ProductRep.setDatabase(database);
+        model.ProductRep.create(produto);
+        limparTela();
+        mensagem.setText("Dados Salvos");
+    }
+    @FXML
+    public void addFoto(){
+        ScreenControl.changeScene("/view/camera.fxml", ScreenControl.stage2);
+    }
+
+    @FXML
+    public void atualizar(){
+        Image image = new Image(fotoEndereco);
+        foto.setImage(image);
+        mensagem.setText("Imagem atualizada");
+    }
+
+    @FXML
+    public void voltar(){
+        ScreenControl.changeScene("/view/home.fxml", ScreenControl.stage1);
+    }
+
+    public void limparTela(){
+        nome.clear();
+        codigo.clear();
+        quantidade.clear();
+        preco.clear();
+        dataValidade.clear();
+        secao.clear();
+        gondola.clear();
+        prateleira.clear();
+        observacoes.clear();
+        foto.setImage(null);
+    }
+
+    public model.Product defineProduto(){
         model.Product produto = new model.Product();
         produto.setName(nome.getText());
         produto.setCode(codigo.getText());
         produto.setStockQuantity(Double.parseDouble(quantidade.getText()));
         produto.setPrice(Double.parseDouble(preco.getText()));
         produto.setExpiration(dataValidade.getText());
-        produto.setSection(secao.getText());
-        produto.setGondola(gondola.getText());
-        produto.setShelf(prateleira.getText());
+        produto.setSectionE(secao.getText());
+        produto.setGondolaE(gondola.getText());
+        produto.setShelfE(prateleira.getText());
         produto.setObservation(observacoes.getText());
         produto.setStoreQuantity(0);
-        model.ProductRep.setDatabase(database);
-        model.ProductRep.create(produto);
+        produto.setImagemE(fotoEndereco);
+        return produto;
     }
-    @FXML
-    public void addFoto(){
-        
-    }
+
 }
+

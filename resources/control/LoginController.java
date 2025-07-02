@@ -2,8 +2,10 @@ package control;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.control.Button;
+
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Alert;
 
@@ -15,6 +17,8 @@ public class LoginController {
     private TextField passwordField;
     @FXML
     private Button entrarButton;
+    @FXML
+    private ImageView marca;
     
     
     private static model.UserDB database = new model.UserDB("usuarios");
@@ -22,13 +26,20 @@ public class LoginController {
         new model.UserRep(database);
         
     public static model.User logado;
+
+    public void initialize(){
+        if(marca == null){
+            Image image = new Image("file:/home/victor-hugo/Facul/Trabalho_POO/grupo4/logos/LOGO_TE-SEM_FUNDO.png");
+            marca.setImage(image);
+        }
+    }
         
     @FXML
     public void fazerLogin(){
         try{
             logado = userRep.login(userField.getText(), passwordField.getText());
             if(logado != null){
-                ScreenControl.changeScene("/view/home.fxml");
+                ScreenControl.changeScene("/view/home.fxml", ScreenControl.stage1);
             } else{
                 Alert alerta = new Alert(AlertType.ERROR);
                 alerta.setTitle("Login inválido");
@@ -46,7 +57,7 @@ public class LoginController {
     
     @FXML
     void mudarTela(){
-        ScreenControl.changeScene("/view/criacao.fxml");
+        ScreenControl.changeScene("/view/criacao.fxml", ScreenControl.stage1);
     }
 
     

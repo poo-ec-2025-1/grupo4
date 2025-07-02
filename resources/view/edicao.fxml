@@ -1,69 +1,182 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="710.0" style="-fx-background-color: #363636;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.EdicaoController">
-   <children>
-      <TextField fx:id="nome" layoutX="22.0" layoutY="73.0" prefHeight="25.0" prefWidth="178.0" promptText="Nome" />
-      <TextField fx:id="codigo" layoutX="266.0" layoutY="73.0" prefHeight="25.0" prefWidth="178.0" promptText="Código" />
-      <TextField fx:id="dataValidade" layoutX="503.0" layoutY="73.0" prefHeight="25.0" prefWidth="178.0" promptText="Data de Validade" />
-      <TextField fx:id="quantidade" layoutX="266.0" layoutY="125.0" prefHeight="25.0" prefWidth="178.0" promptText="Qt. para passar para a loja" />
-      <TextField fx:id="preco" layoutX="22.0" layoutY="125.0" prefHeight="25.0" prefWidth="178.0" promptText="Preço Atual" />
-      <TextArea fx:id="observacoes" layoutX="22.0" layoutY="338.0" prefHeight="56.0" prefWidth="660.0" promptText="Observações" />
-      <Button layoutX="22.0" layoutY="414.0" mnemonicParsing="false" onAction="#salvar" prefHeight="40.0" prefWidth="83.0" style="-fx-background-color: #1e90ff;" text="Salvar" textFill="WHITE">
-         <font>
-            <Font name="Monospaced Bold" size="16.0" />
-         </font></Button>
-      <Label layoutX="188.0" layoutY="22.0" text="Edição ou Reposição de Produtos" textFill="DODGERBLUE">
-         <font>
-            <Font name="Monospaced Bold" size="18.0" />
-         </font></Label>
-      <Button layoutX="117.0" layoutY="414.0" mnemonicParsing="false" onAction="#deletar" prefHeight="40.0" prefWidth="91.0" style="-fx-background-color: #1e90ff;" text="Deletar" textFill="WHITE">
-         <font>
-            <Font name="Monospaced Bold" size="16.0" />
-         </font></Button>
-      <Button layoutX="217.0" layoutY="414.0" mnemonicParsing="false" onAction="#voltarTelaAnterior" prefHeight="40.0" prefWidth="83.0" style="-fx-background-color: #1e90ff;" text="Voltar" textFill="WHITE">
-         <font>
-            <Font name="Monospaced Bold" size="16.0" />
-         </font></Button>
-      <Label fx:id="label" layoutX="360.0" layoutY="313.0" />
-      <TextField fx:id="secaoE" layoutX="22.0" layoutY="289.0" prefHeight="25.0" prefWidth="178.0" promptText="Seção Estoque" />
-      <TextField fx:id="gondolaE" layoutX="266.0" layoutY="289.0" prefHeight="25.0" prefWidth="178.0" promptText="Gôndola Estoque" />
-      <TextField fx:id="prateleiraE" layoutX="503.0" layoutY="289.0" prefHeight="25.0" prefWidth="178.0" promptText="Prateleira Estoque" />
-      <TextField fx:id="quantidadeE" layoutX="503.0" layoutY="125.0" prefHeight="25.0" prefWidth="178.0" promptText="Qt. para passar para o estoque" />
-      <Label fx:id="storeQuantity" layoutX="281.0" layoutY="235.0" />
-      <Label fx:id="stockQuantity" layoutX="531.0" layoutY="235.0" />
-      <ImageView fitHeight="165.0" fitWidth="285.0" layoutX="344.0" layoutY="401.0" pickOnBounds="true" preserveRatio="true" />
-      <Label layoutX="22.0" layoutY="57.0" text="Nome:" textFill="DODGERBLUE" />
-      <Label layoutX="266.0" layoutY="57.0" text="Código:" textFill="DODGERBLUE" />
-      <Label layoutX="503.0" layoutY="57.0" text="Data de Validade:" textFill="DODGERBLUE" />
-      <Label layoutX="22.0" layoutY="108.0" text="Preço Atual:" textFill="DODGERBLUE" />
-      <Label layoutX="266.0" layoutY="108.0" text="Qt. para loja:" textFill="DODGERBLUE" />
-      <Label layoutX="503.0" layoutY="108.0" text="Qt. para estoque:" textFill="DODGERBLUE" />
-      <Label layoutX="336.0" layoutY="173.0" text="Loja" textFill="DODGERBLUE">
-         <font>
-            <Font name="Monospaced Bold" size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="22.0" layoutY="193.0" text="Endereço da loja:" textFill="DODGERBLUE" />
-      <Label layoutX="321.0" layoutY="252.0" text="Estoque" textFill="DODGERBLUE">
-         <font>
-            <Font name="Monospaced Bold" size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="22.0" layoutY="272.0" text="Seção:" textFill="DODGERBLUE" />
-      <Label layoutX="269.0" layoutY="272.0" text="Gôndola:" textFill="DODGERBLUE" />
-      <Label layoutX="505.0" layoutY="272.0" text="Prateleira:" textFill="DODGERBLUE" />
-      <Label layoutX="22.0" layoutY="322.0" text="Observações:" textFill="DODGERBLUE" />
-      <TextField fx:id="enderecoL" layoutX="22.0" layoutY="210.0" prefHeight="25.0" prefWidth="660.0" promptText="Endereço da loja:" />
-      <Label fx:id="storeQuantity" layoutX="22.0" layoutY="484.0" textFill="DODGERBLUE" />
-      <Label fx:id="stockQuantity" layoutX="22.0" layoutY="519.0" textFill="DODGERBLUE" />
-      <Label fx:id="label" layoutX="22.0" layoutY="545.0" textFill="DODGERBLUE" />
-   </children>
-</AnchorPane>
+<BorderPane prefHeight="700" prefWidth="900" style="-fx-background-color: #363636;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.EdicaoController">
+
+    <!-- TOPO -->
+    <top>
+        <VBox spacing="8">
+            <padding>
+                <Insets bottom="8" left="8" right="8" top="8" />
+            </padding>
+            <Label text="Edição ou Reposição de Produtos" textFill="DODGERBLUE">
+                <font>
+                    <Font name="Monospaced Bold" size="16.0" />
+                </font>
+            </Label>
+        </VBox>
+    </top>
+
+    <!-- CENTRO -->
+    <center>
+        <VBox spacing="10">
+            <padding>
+                <Insets bottom="8" left="8" right="8" top="8" />
+            </padding>
+
+            <!-- PRIMEIRA GRADE: Dados básicos -->
+            <GridPane hgap="10" vgap="5">
+                <columnConstraints>
+                    <ColumnConstraints percentWidth="33" />
+                    <ColumnConstraints percentWidth="33" />
+                    <ColumnConstraints percentWidth="33" />
+                </columnConstraints>
+
+                <Label text="Nome:" textFill="DODGERBLUE" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                    <font><Font name="Monospaced" size="12.0" /></font>
+                </Label>
+                <Label text="Código:" textFill="DODGERBLUE" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                    <font><Font name="Monospaced" size="12.0" /></font>
+                </Label>
+                <Label text="Data de Validade:" textFill="DODGERBLUE" GridPane.columnIndex="2" GridPane.rowIndex="0">
+                    <font><Font name="Monospaced" size="12.0" /></font>
+                </Label>
+
+                <TextField fx:id="nome" promptText="Nome" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                <TextField fx:id="codigo" promptText="Código" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <TextField fx:id="dataValidade" promptText="Data de Validade" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+
+                <Label text="Preço Atual:" textFill="DODGERBLUE" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                    <font><Font name="Monospaced" size="12.0" /></font>
+                </Label>
+                <Label text="Qt. para loja:" textFill="DODGERBLUE" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                    <font><Font name="Monospaced" size="12.0" /></font>
+                </Label>
+                <Label text="Qt. para estoque:" textFill="DODGERBLUE" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                    <font><Font name="Monospaced" size="12.0" /></font>
+                </Label>
+
+                <TextField fx:id="preco" promptText="Preço Atual" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                <TextField fx:id="quantidade" promptText="Qt. para loja" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                <TextField fx:id="quantidadeE" promptText="Qt. para estoque" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <rowConstraints>
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+            </rowConstraints>
+            </GridPane>
+
+            <!-- LOJA -->
+            <VBox spacing="5">
+                <Label text="Loja" textFill="DODGERBLUE">
+                    <font><Font name="Monospaced Bold" size="14.0" /></font>
+                </Label>
+                <HBox spacing="8">
+                    <Label text="Endereço da loja:" textFill="DODGERBLUE">
+                        <font><Font name="Monospaced" size="12.0" /></font>
+                    </Label>
+                    <TextField fx:id="enderecoL" prefWidth="600" promptText="Endereço da loja:" />
+                </HBox>
+                <Label fx:id="storeQuantity" prefHeight="18.0" prefWidth="200.0" textFill="DODGERBLUE">
+                    <font><Font name="Monospaced" size="12.0" /></font>
+                </Label>
+            </VBox>
+
+            <!-- ESTOQUE -->
+            <VBox spacing="5">
+                <Label text="Estoque" textFill="DODGERBLUE">
+                    <font><Font name="Monospaced Bold" size="14.0" /></font>
+                </Label>
+                <GridPane hgap="10" vgap="5">
+                    <columnConstraints>
+                        <ColumnConstraints percentWidth="33" />
+                        <ColumnConstraints percentWidth="33" />
+                        <ColumnConstraints percentWidth="33" />
+                    </columnConstraints>
+
+                    <Label text="Seção:" textFill="DODGERBLUE" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                        <font><Font name="Monospaced" size="12.0" /></font>
+                    </Label>
+                    <Label text="Gôndola:" textFill="DODGERBLUE" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                        <font><Font name="Monospaced" size="12.0" /></font>
+                    </Label>
+                    <Label text="Prateleira:" textFill="DODGERBLUE" GridPane.columnIndex="2" GridPane.rowIndex="0">
+                        <font><Font name="Monospaced" size="12.0" /></font>
+                    </Label>
+
+                    <TextField fx:id="secaoE" promptText="Seção" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                    <TextField fx:id="gondolaE" promptText="Gôndola" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                    <TextField fx:id="prateleiraE" promptText="Prateleira" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+
+                    <Label fx:id="stockQuantity" prefHeight="18.0" prefWidth="200.0" textFill="DODGERBLUE" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+               <rowConstraints>
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+               </rowConstraints>
+                </GridPane>
+            </VBox>
+        </VBox>
+    </center>
+
+    <!-- BOTTOM -->
+    <bottom>
+        <VBox prefHeight="364.0" prefWidth="900.0" spacing="8">
+            <padding>
+                <Insets bottom="8" left="8" right="8" top="8" />
+            </padding>
+
+            <Label text="Observações:" textFill="DODGERBLUE">
+                <font><Font name="Monospaced" size="12.0" /></font>
+            </Label>
+            <TextArea fx:id="observacoes" prefHeight="40" prefWidth="800" promptText="Observações" />
+
+            <HBox spacing="8">
+                <Button fx:id="salvar" onAction="#salvar" prefWidth="90" style="-fx-background-color: #1e90ff;" text="Salvar" textFill="WHITE">
+                    <font><Font name="Monospaced Bold" size="12.0" /></font>
+                </Button>
+                <Button fx:id="deletar" onAction="#deletar" prefWidth="90" style="-fx-background-color: #1e90ff;" text="Deletar" textFill="WHITE">
+                    <font><Font name="Monospaced Bold" size="12.0" /></font>
+                </Button>
+                <Button fx:id="voltarTelaAnterior" onAction="#voltarTelaAnterior" prefWidth="90" style="-fx-background-color: #1e90ff;" text="Voltar" textFill="WHITE">
+                    <font><Font name="Monospaced Bold" size="12.0" /></font>
+                </Button>
+                <Label fx:id="label" prefHeight="18.0" prefWidth="200.0" textFill="DODGERBLUE">
+                    <font><Font name="Monospaced" size="12.0" /></font>
+                </Label>
+            </HBox>
+
+            <HBox spacing="8">
+                <Button fx:id="subirL" onAction="#subirL" prefWidth="110" style="-fx-background-color: #1e90ff;" text="subir img L" textFill="WHITE">
+                    <font><Font name="Monospaced Bold" size="12.0" /></font>
+                </Button>
+                <Button fx:id="subirE" onAction="#subirE" prefWidth="110" style="-fx-background-color: #1e90ff;" text="subir img E" textFill="WHITE">
+                    <font><Font name="Monospaced Bold" size="12.0" /></font>
+                </Button>
+                <Button fx:id="capturarFoto" onAction="#capturarFoto" prefWidth="130" style="-fx-background-color: #1e90ff;" text="Capturar Foto" textFill="WHITE">
+                    <font><Font name="Monospaced Bold" size="12.0" /></font>
+                </Button>
+            </HBox>
+
+            <HBox spacing="8">
+                <ImageView fx:id="imagemLoja" fitHeight="143.0" fitWidth="207.0" preserveRatio="true" />
+                <ImageView fx:id="imagemEstoque" fitHeight="142.0" fitWidth="198.0" preserveRatio="true" />
+            </HBox>
+        </VBox>
+    </bottom>
+
+</BorderPane>

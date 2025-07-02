@@ -1,16 +1,15 @@
 package control;
 
-import java.util.function.UnaryOperator;
 import java.util.regex.Pattern;
-import javafx.scene.control.TextFormatter;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextFormatter;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+
 
 import model.ProductDB;
 import model.Product;
@@ -46,6 +45,13 @@ public class EdicaoController{
     private Label storeQuantity;
     @FXML
     private Label stockQuantity;
+    @FXML
+    private ImageView imagemEstoque;
+    @FXML
+    private ImageView imagemLoja;
+    
+    String imagemE;
+    String imagemL; 
     
     private ProductDB database = new ProductDB("produtos");
     
@@ -66,6 +72,21 @@ public class EdicaoController{
         observacoes.setText(produto.getObservation());
         storeQuantity.setText("Qt. Loja: " + String.format("%.2f" , produto.getStoreQuantity()));
         stockQuantity.setText("Qt. Estoque: " + String.format("%.2f" , produto.getStockQuantity()));
+        imagemL = produto.getImage();
+        
+        if(imagemL == null || imagemL.isEmpty()){
+            imagemL = produto.getImageE();
+        }
+        
+        imagemE = produto.getImageE();
+
+        if (imagemE != null && !imagemE.isEmpty()) {
+            imagemEstoque.setImage(new Image(imagemE));
+        }
+
+        if (imagemL != null && !imagemL.isEmpty()) {
+            imagemLoja.setImage(new Image(imagemL));
+        }
         RepositorioModel.setDatabase(database);
         ProductRep.setDatabase(database);
         
@@ -83,8 +104,8 @@ public class EdicaoController{
     @FXML
     public void salvar(){
     try {
-        boolean resultado1 = false;
-        boolean resultado2 = false;
+        boolean resultado1;
+        boolean resultado2;
 
         String texto = enderecoL.getText();
 
@@ -109,6 +130,8 @@ public class EdicaoController{
                 produto.setShelfE(prateleiraE.getText());
                 produto.setExpiration(dataValidade.getText());
                 produto.setObservation(observacoes.getText());
+                produto.setImagem(imagemL);
+                produto.setImagemE(imagemE);
 
                 if (!preco.getText().isEmpty()) {
                     String precoLimpo = preco.getText().replace(",", ".");
@@ -141,26 +164,31 @@ public class EdicaoController{
             }
         }
 
-        if (!quantidade.getText().isEmpty()) {
+        if (quantidade.getText().isEmpty()) {
+            resultado1 = RepositorioModel.atualizaLoja(codigo.getText(), 0);
+        } else {
             resultado1 = RepositorioModel.atualizaLoja(codigo.getText(), Double.parseDouble(quantidade.getText()));
         }
 
-        if (!quantidadeE.getText().isEmpty()) {
+        if (quantidadeE.getText().isEmpty()) {
+            resultado2 = RepositorioModel.atualizaEstoque(codigo.getText(), 0);
+        } else {
             resultado2 = RepositorioModel.atualizaEstoque(codigo.getText(), Double.parseDouble(quantidadeE.getText()));
         }
 
         if (resultado1 || resultado2) {
             Product produtoAtualizado = ProductRep.buscarPorCodigo(codigo.getText());
+
             if (produtoAtualizado != null) {
                 storeQuantity.setText("Qt. Loja: " + String.format("%.2f", produtoAtualizado.getStoreQuantity()));
                 stockQuantity.setText("Qt. Estoque: " + String.format("%.2f", produtoAtualizado.getStockQuantity()));
+
                 label.setText("Produto atualizado com sucesso!");
-                RepositorioController.produtoSelecionado = produtoAtualizado;
             } else {
                 label.setText("Erro: Produto não encontrado após atualização.");
             }
         } else {
-            label.setText("Nenhuma movimentação realizada.");
+            label.setText("Código ou quantidade inválida!");
         }
     } catch (Exception e) {
         e.printStackTrace();
@@ -185,12 +213,30 @@ public class EdicaoController{
     
     @FXML
     public void voltarTelaAnterior() {
-        ScreenControl.changeScene("/view/repositorio.fxml");
+        ScreenControl.changeScene("/view/repositorio.fxml", ScreenControl.stage1);
     }
     
     public String[] separaString(String palavra){
         String[] partes = palavra.split("/");
         return partes;
+    }
+
+    @FXML
+    public void subirL(){
+        imagemL = control.ConferenteControl.fotoEndereco;
+        Image imagem = new Image(imagemL);
+        imagemLoja.setImage(imagem);
+    }
+    @FXML
+    public void subirE(){
+        imagemE = control.ConferenteControl.fotoEndereco;
+        Image imagem = new Image(imagemE);
+        imagemLoja.setImage(imagem);
+    }
+
+    @FXML
+    public void capturarFoto(){
+        ScreenControl.changeScene("/view/camera.fxml", ScreenControl.stage2);
     }
 }
 

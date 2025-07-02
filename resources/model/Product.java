@@ -10,7 +10,7 @@ import com.j256.ormlite.field.DataType;
 @DatabaseTable(tableName = "produtos")
 public class Product
 {  
-    @DatabaseField(generatedId = true)
+    @DatabaseField(columnName = "id", generatedId = true)
     private int Id;
        
     @DatabaseField
@@ -51,6 +51,12 @@ public class Product
 
     @DatabaseField
     private String observation;
+
+    @DatabaseField
+    private String enderecoFotoE;
+
+    @DatabaseField
+    private String enderecoFoto;
     
     public String printExpiration() {
         SimpleDateFormat dateFor = new SimpleDateFormat("dd/MM/yyyy");
@@ -227,5 +233,21 @@ public class Product
     /**SET Method Propertie gondolaE*/
     public void setGondolaE(String gondolaE){
         this.gondolaE = gondolaE;
+    }
+
+    public void setImagemE(String imagem){
+        enderecoFotoE = imagem;
+    }
+
+    public String getImageE(){
+        return enderecoFotoE;
+    }
+
+    public void setImagem(String imagem){
+        enderecoFoto = imagem;
+    }
+
+    public String getImage(){
+        return enderecoFoto;
     }
 }

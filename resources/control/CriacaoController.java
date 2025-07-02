@@ -4,7 +4,6 @@ import javafx.fxml.FXML;
 import java.util.regex.Pattern;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Label;
-import javafx.scene.control.Button;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Alert;
 
@@ -62,7 +61,7 @@ public class CriacaoController{
     
     @FXML
     public void voltarTelaAnterior() {
-        ScreenControl.changeScene("/view/login.fxml");
+        ScreenControl.changeScene("/view/login.fxml", ScreenControl.stage1);
     }
     
     public void limparCampos(){
