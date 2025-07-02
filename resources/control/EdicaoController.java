@@ -123,6 +123,17 @@ public class EdicaoController{
             Product produto = RepositorioController.produtoSelecionado;
 
             if (produto != null) {
+                String nomeProduto = nome.getText().trim();
+                String codigoProduto = codigo.getText().trim();
+
+                if (nomeProduto.isEmpty() || codigoProduto.isEmpty()) {
+                    Alert alerta = new Alert(AlertType.ERROR);
+                    alerta.setTitle("Erro ao salvar");
+                    alerta.setHeaderText("Campos obrigatórios vazios!");
+                    alerta.setContentText("O campo NOME e o campo CÓDIGO não podem estar vazios.");
+                    alerta.showAndWait();
+                    return;
+                }
                 produto.setName(nome.getText());
                 produto.setCode(codigo.getText());
                 produto.setSectionE(secaoE.getText());

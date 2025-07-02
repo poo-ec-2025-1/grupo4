@@ -13,6 +13,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+
 
 
 public class ConferenteControl implements Initializable{
@@ -60,6 +63,20 @@ public class ConferenteControl implements Initializable{
 
     @FXML
     public void salvarInformacoes(){
+        String nomeProduto = nome.getText().trim();
+        String codigoProduto = codigo.getText().trim();
+        String validade = dataValidade.getText().trim();
+        String quantidadeEstoque = quantidade.getText().trim();
+
+        if (nomeProduto.isEmpty() || codigoProduto.isEmpty() || validade.isEmpty()
+        || fotoEndereco == null || quantidadeEstoque.isEmpty()) {
+            Alert alerta = new Alert(AlertType.ERROR);
+            alerta.setTitle("Erro ao salvar");
+            alerta.setHeaderText("Campos obrigatórios vazios!");
+            alerta.setContentText("Os campos NOME, CÓDIGO, VALIDADE e QUANTIDADE não podem estar vazios. Além disso, a foto tem que ser adicionada.");
+            alerta.showAndWait();
+            return;
+        }
         model.Product produto = defineProduto();
         model.ProductDB database = new model.ProductDB("produtos");
         model.ProductRep.setDatabase(database);
@@ -74,9 +91,13 @@ public class ConferenteControl implements Initializable{
 
     @FXML
     public void atualizar(){
+    if (fotoEndereco != null && !fotoEndereco.isEmpty()) {
         Image image = new Image(fotoEndereco);
         foto.setImage(image);
         mensagem.setText("Imagem atualizada");
+    } else {
+        mensagem.setText("Nenhuma imagem adicionada.");
+    }
     }
 
     @FXML
@@ -101,8 +122,11 @@ public class ConferenteControl implements Initializable{
         model.Product produto = new model.Product();
         produto.setName(nome.getText());
         produto.setCode(codigo.getText());
+        
+        double precoProduto = preco.getText().isEmpty() ? 0.0 : Double.parseDouble(preco.getText());
+        
         produto.setStockQuantity(Double.parseDouble(quantidade.getText()));
-        produto.setPrice(Double.parseDouble(preco.getText()));
+        produto.setPrice(precoProduto);
         produto.setExpiration(dataValidade.getText());
         produto.setSectionE(secao.getText());
         produto.setGondolaE(gondola.getText());
