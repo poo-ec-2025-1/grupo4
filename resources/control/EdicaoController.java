@@ -1,6 +1,9 @@
 package control;
 
 import java.util.regex.Pattern;
+import java.net.URL;
+import javafx.fxml.Initializable;
+import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -9,6 +12,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.control.Label;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import java.util.function.UnaryOperator;
+import javafx.scene.control.TextFormatter;
 
 
 import model.ProductDB;
@@ -16,7 +21,7 @@ import model.Product;
 import model.ProductRep;
 import model.RepositorioModel;
 
-public class EdicaoController{
+public class EdicaoController implements Initializable{
     @FXML
     private TextField nome;
     @FXML
@@ -55,8 +60,8 @@ public class EdicaoController{
     
     private ProductDB database = new ProductDB("produtos");
     
-    @FXML
-    public void initialize() {
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
     Product produto = RepositorioController.produtoSelecionado;
     if (produto != null) {
         
@@ -89,6 +94,19 @@ public class EdicaoController{
         }
         RepositorioModel.setDatabase(database);
         ProductRep.setDatabase(database);
+        
+        Pattern pattern = Pattern.compile("\\d{0,2}(/\\d{0,2}(/\\d{0,4})?)?");
+
+        UnaryOperator<TextFormatter.Change> filtro = change -> {
+            String novoTexto = change.getControlNewText();
+            if (pattern.matcher(novoTexto).matches()) {
+                return change;
+            } else {
+                return null; 
+            }
+        };
+        TextFormatter<String> textFormatter = new TextFormatter<>(filtro);
+        dataValidade.setTextFormatter(textFormatter);
         
     }
     else{

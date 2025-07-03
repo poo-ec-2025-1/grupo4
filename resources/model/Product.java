@@ -43,8 +43,8 @@ public class Product
     @DatabaseField
     private double stock_quantity;
     
-    @DatabaseField(dataType=DataType.DATE)
-    private Date expiration;
+    @DatabaseField
+    private String expiration;
     
     @DatabaseField
     private double unit_price;
@@ -58,10 +58,6 @@ public class Product
     @DatabaseField
     private String enderecoFoto;
     
-    public String printExpiration() {
-        SimpleDateFormat dateFor = new SimpleDateFormat("dd/MM/yyyy");
-        return dateFor.format(expiration);
-    }
     
     public Product(){}
 
@@ -78,7 +74,7 @@ public class Product
         this.store_quantity = store_quantity;
         this.stock_quantity = stock_quantity;
         this.unit_price = unit_price;
-        this.setExpiration(expiration);
+        this.expiration = expiration;
         this.observation = observation;
         this.sectionE = sectionE;
         this.gondolaE = gondolaE;
@@ -157,13 +153,12 @@ public class Product
 
     /**GET Method Propertie expiration*/
     public String getExpiration(){
-        String data = DateToString(this.expiration);
-        return data;
+        return this.expiration;
     }
 
     /**SET Method Propertie expiration*/
     public void setExpiration(String data){
-        expiration = StringToDate(data);
+        expiration = data;
     }
     
     /**GET Method Propertie unit_price*/
@@ -176,23 +171,6 @@ public class Product
         this.unit_price = unit_price;
     }
     
-    public static Date StringToDate(String dataEmTexto) {
-        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-        formato.setLenient(false); 
-
-        try {
-            return formato.parse(dataEmTexto);
-        } catch (ParseException e) {
-            System.out.println("Data inválida: " + dataEmTexto);
-            return null; 
-        }
-    }
-    
-    public static String DateToString(Date data) {
-        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-        return formato.format(data);
-    }
-
     public int getId(){
         return this.Id;
     }
