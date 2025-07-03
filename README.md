@@ -19,13 +19,13 @@ A ideia é permitir que os colaboradores registrem e acessem facilmente informa�
 
 - **Login de usuário**
   - Cada usuário acessa com login e senha.
-  - Não há distinção entre administrador e funcionário.
+  - Não há distinção entre administrador e funcionário, somente o Usuário.
   
-- **Menu com 4 opções após login:**
-  1. *Layout da Loja* – Visualização e mapeamento de organização física.
-  2. *Configuração de Estoque* – Cadastro, consulta e atualização de produtos.
-  3. *Notificações da Loja* – Alertas sobre prazos, vencimentos e movimentações.
-  4. *Bate-papo Interno* – Comunicação simples entre os colaboradores.
+- **Menu com 3 opções após login:**
+  1. *Repositório* - Consulta, atualiza, deleta ou altera a quantidade de produtos na loja e no estoque.
+  2. *Conferente* – Cadastro, consulta e atualização de produtos.
+  3. *Caixa* – Vende os produtos e atualiza sua quantidade na loja e estoque.
+  
 
 ### Problemas identificados:
 
@@ -52,8 +52,8 @@ Criar um aplicativo que auxilie estabelecimentos comerciais no gerenciamento de 
 |---------------------------------|--------------------------|
 | João Pedro Rodrigues de Almeida | Documentação             |
 | José Augusto Gomes de Mendonça  | Modelagem de dados       |
-| Vitor Hugo de Oliveira Moreira  | Interface gráfica (View) |
-| Yan Freire Caser                | Controlador (Controller) |
+| Vitor Hugo de Oliveira Moreira  | Controlador (Controller) | 
+| Yan Freire Caser                |Interface gráfica (View)  |
 
 ---
 
