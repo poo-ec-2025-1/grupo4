@@ -10,7 +10,7 @@ import com.j256.ormlite.field.DataType;
 @DatabaseTable(tableName = "produtos")
 public class Product
 {  
-    @DatabaseField(generatedId = true)
+    @DatabaseField(columnName = "id", generatedId = true)
     private int Id;
        
     @DatabaseField

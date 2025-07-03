@@ -10,6 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
+
 import model.ProductDB;
 import model.Product;
 import model.ProductRep;
@@ -71,8 +72,21 @@ public class EdicaoController{
         observacoes.setText(produto.getObservation());
         storeQuantity.setText("Qt. Loja: " + String.format("%.2f" , produto.getStoreQuantity()));
         stockQuantity.setText("Qt. Estoque: " + String.format("%.2f" , produto.getStockQuantity()));
-        imagemEstoque.setImage(new Image(produto.getImageE()));
-        imagemLoja.setImage(new Image(produto.getImage()));
+        imagemL = produto.getImage();
+        
+        if(imagemL == null || imagemL.isEmpty()){
+            imagemL = produto.getImageE();
+        }
+        
+        imagemE = produto.getImageE();
+
+        if (imagemE != null && !imagemE.isEmpty()) {
+            imagemEstoque.setImage(new Image(imagemE));
+        }
+
+        if (imagemL != null && !imagemL.isEmpty()) {
+            imagemLoja.setImage(new Image(imagemL));
+        }
         RepositorioModel.setDatabase(database);
         ProductRep.setDatabase(database);
         
@@ -109,6 +123,17 @@ public class EdicaoController{
             Product produto = RepositorioController.produtoSelecionado;
 
             if (produto != null) {
+                String nomeProduto = nome.getText().trim();
+                String codigoProduto = codigo.getText().trim();
+
+                if (nomeProduto.isEmpty() || codigoProduto.isEmpty()) {
+                    Alert alerta = new Alert(AlertType.ERROR);
+                    alerta.setTitle("Erro ao salvar");
+                    alerta.setHeaderText("Campos obrigatórios vazios!");
+                    alerta.setContentText("O campo NOME e o campo CÓDIGO não podem estar vazios.");
+                    alerta.showAndWait();
+                    return;
+                }
                 produto.setName(nome.getText());
                 produto.setCode(codigo.getText());
                 produto.setSectionE(secaoE.getText());
