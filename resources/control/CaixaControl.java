@@ -2,6 +2,8 @@ package control;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -35,6 +37,15 @@ public class CaixaControl implements Initializable{
     }
     @FXML
     public void vender(){
+        if (txtCodigo.getText().isEmpty() || txtQuantidade.getText().isEmpty()) {
+                    Alert alerta = new Alert(AlertType.ERROR);
+                    alerta.setTitle("Erro ao salvar");
+                    alerta.setHeaderText("Campos obrigatórios vazios!");
+                    alerta.setContentText("Esses 2 campos não podem ficar vazios.");
+                    alerta.showAndWait();
+                    return;
+                }
+        
         String cod = txtCodigo.getText();
         double quant = Double.parseDouble(txtQuantidade.getText());
         model.CaixaModel.setDatabase(produto);
