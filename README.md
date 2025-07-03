@@ -2,10 +2,10 @@
 
 ##  Membros do Grupo
 
-- **Vitor Hugo de Oliveira Moreira** – *Interface (View)* – `@toorugo`
+- **Vitor Hugo de Oliveira Moreira** –  *Controlador (Controller)* – `@toorugo`
 - **João Pedro Rodrigues de Almeida** – *Documentação* – `@JoaoAlmeida2005`
 - **José Augusto Gomes de Mendonça** – *Modelagem (Model)* – `@JoseAugustoGM`
-- **Yan Freire Caser** – *Controlador (Controller)* – `@yancaser`
+- **Yan Freire Caser** – *Interface (View)* – `@yancaser`
 
 ---
 
