@@ -87,11 +87,15 @@
 
   Essas alterações incluem apenas um rascunho da criação ou configuração, outras modificações de layout foram feitas pelo integrante do grupo responsável pelas telas.
 
-  Também contribui com alterações importantes para toda a aplicação no seguinte commit:
+  Também contribui com alterações importantes para toda a aplicação nos seguintes commits:
 
   [Link para o commit: Código final do projeto.](https://github.com/poo-ec-2025-1/grupo4/commit/8660db8a319711eea8573365354adb0f023af516)
+  
+  [Link para o commit: Correções e validações finais.](https://github.com/poo-ec-2025-1/grupo4/commit/42563c25224e3612c901e2456e40f39a0fbd91ac)
+  
+  [Link para o commit: Adicionando validações finais.](https://github.com/poo-ec-2025-1/grupo4/commit/c4fcbddc20dc9a80baec305ea9a45ab7cee1fd4e)
 
-  Neste commit, eu atualizei o meu código com o código do líder do projeto. Logo em seguida, fiz as alterações necessárias e corrigi erros para fazer o programa funcionar. Ao finalizar tudo isso, usando o BlueJ, eu consegui criar o .jar para o projeto.
+  Neste commit, eu atualizei o meu código com o código do líder do projeto. Logo em seguida, fiz as alterações necessárias e corrigi erros para fazer o programa funcionar. Além disso, também implementei validações para manter a lógica do programa, como, por exemplo, determinar quais campos podem ou não ficar vazios. Ao finalizar tudo, usando o BlueJ, consegui criar o arquivo .jar para o projeto.
 
   Como ajudei outras pessoas a resolverem seus problemas?
   - Estou constantemente conversando com o líder do grupo para resolver erros, adicionar funcionalidades e tentar encaminhar o projeto da melhor forma possível.
