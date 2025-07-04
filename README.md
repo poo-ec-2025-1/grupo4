@@ -64,7 +64,7 @@ Criar um aplicativo que auxilie estabelecimentos comerciais no gerenciamento de 
 ![image](https://github.com/user-attachments/assets/fdb345fa-be57-429e-9b8a-cbdb5c5f292d)
 ---
 
- ## Diagrama de Casos:
+ ## Diagrama de Classes:
 ![image](https://github.com/user-attachments/assets/65c1f76a-8e8d-42ff-ae47-e1406323af91)
 ---
 
